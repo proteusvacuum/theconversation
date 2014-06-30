@@ -1,3 +1,5 @@
+import newrelic.agent
+newrelic.agent.initialize('newrelic.ini')
 import os
 import tornado.httpserver
 import tornado.httpclient
