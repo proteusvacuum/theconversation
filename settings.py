@@ -45,7 +45,7 @@ default_options = {
   # disqus details
   'disqus_public_key': 'BrnJNFt8joBPNjgOyvNB8BMcWTPTR6Vp6IonJGCWVF7IZADAwx0qGMAZG6tA7SpL',
   'disqus_secret_key': '3Dpmcf9J7VOSw0rd9paJBHsO39VLs9PJifZWjqi9ueLx2sBfWRj7wcR4WjZozAZt',
-  'disqus_short_code': '',
+  'disqus_short_code': 'growfoodtech',
 
   # sendgrid details
   'sendgrid_user': '',
