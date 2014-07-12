@@ -132,7 +132,6 @@ class AdminHome(app.basic.BaseHandler):
 class AdminUsers(app.basic.BaseHandler):
     @tornado.web.authenticated
     def get(self):
-        logging.info("there")
         if self.current_user_role() not in settings.get('admin_roles'):
             self.redirect('/')
         else:

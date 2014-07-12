@@ -23,9 +23,9 @@ import app.twitter
 import app.error
 import templates
 
-if os.environ['ENVIRONMENT'] == "prod" :
-  import newrelic.agent
-  newrelic.agent.initialize('newrelic.ini')
+# if os.environ['ENVIRONMENT'] == "dev" :
+#   import newrelic.agent
+#   newrelic.agent.initialize('newrelic.ini')
 
 class Application(tornado.web.Application):
     def __init__(self):
