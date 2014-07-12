@@ -28,6 +28,7 @@ class BaseHandler(tornado.web.RequestHandler):
         kwargs['settings'] = settings
         kwargs['body_location_class'] = ""
         kwargs['current_path'] = self.request.uri
+        kwargs['is_blacklisted'] = self.is_blacklisted
         #kwargs['request_path'] = self.request
 
         if self.request.path == "/":

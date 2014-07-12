@@ -290,21 +290,21 @@ class ListPosts(app.basic.BaseHandler):
             for mention in mentions:
                 mentionsdb.add_mention(mention.lower(), post['slug'])
 
-        # Send email to USVers if OP is staff
-        if self.current_user in settings.get('staff'):
-            subject = 'USV.com: %s posted "%s"' % (self.current_user, post['title'])
-            if 'url' in post and post['url']: # post.url is the link to external content (if any)
-                post_link = 'External Link: %s \n\n' % post['url']
-            else:
-                post_link = ''
-            post_url = "http://%s/posts/%s" % (settings.get('base_url'), post['slug'])
-            text = '"%s" ( %s ) posted by %s. \n\n %s %s' % (post['title'].encode('ascii', errors='ignore'), post_url, self.current_user, post_link, post.get('body_text', ""))
-            # now attempt to actually send the emails
-            for u in settings.get('staff'):
-                if u != self.current_user:
-                    acc = userdb.get_user_by_screen_name(u)
-                    if acc:
-                        self.send_email('web@usv.com', acc['email_address'], subject, text)
+        # # Send email to USVers if OP is staff
+        # if self.current_user in settings.get('staff'):
+        #     subject = 'USV.com: %s posted "%s"' % (self.current_user, post['title'])
+        #     if 'url' in post and post['url']: # post.url is the link to external content (if any)
+        #         post_link = 'External Link: %s \n\n' % post['url']
+        #     else:
+        #         post_link = ''
+        #     post_url = "http://%s/posts/%s" % (settings.get('base_url'), post['slug'])
+        #     text = '"%s" ( %s ) posted by %s. \n\n %s %s' % (post['title'].encode('ascii', errors='ignore'), post_url, self.current_user, post_link, post.get('body_text', ""))
+        #     # now attempt to actually send the emails
+        #     for u in settings.get('staff'):
+        #         if u != self.current_user:
+        #             acc = userdb.get_user_by_screen_name(u)
+        #             if acc:
+        #                 self.send_email('web@usv.com', acc['email_address'], subject, text)
 
         # Subscribe to Disqus
         # Attempt to create the post's thread
@@ -376,6 +376,8 @@ class Bump(app.basic.BaseHandler):
         msg = {}
         if not self.current_user:
             msg = {'error': 'You must be logged in to bump.', 'redirect': True}
+        elif self.is_blacklisted(self.current_user) :
+            msg = {'error': 'You cannot bump posts as you are blacklisted.', 'redirect': True}
         else:
             post = postsdb.get_post_by_slug(slug)
             if post:

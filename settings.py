@@ -82,6 +82,7 @@ default_options = {
     'read_posts'
   ],
   'staff_capabilities': [
+    'create_new_posts',
     'send_daily_email',
     'see_admin_link',
     'delete_users',
