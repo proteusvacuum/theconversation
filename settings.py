@@ -18,8 +18,8 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 
 options = {
   'dev' : {
-    'mongo_database' : {'host' : os.environ.get('MONGODB_URL'), 'port' : 27017, 'db' : os.environ.get('DB_NAME_DEV')},
-    'base_url' : os.environ.get('BASE_URL_DEV'),
+    'mongo_database' : {'host' : os.environ.get('MONGODB_URL'), 'port' : 27017, 'db' : os.environ.get('DB_NAME')},
+    'base_url' : os.environ.get('BASE_URL'),
   },
   'test' : {
     'mongo_database' : {'host' : os.environ.get('MONGODB_URL'), 'port' : 27017, 'db' : os.environ.get('DB_NAME')},
