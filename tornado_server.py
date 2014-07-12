@@ -50,8 +50,7 @@ class Application(tornado.web.Application):
           (r"/user/(?P<screen_name>[A-z-+0-9]+)/(?P<section>[A-z]+)", app.user.Profile),
 
           # admin stuff
-          (r"/admin", app.admin.AdminHome),
-          (r"/admin/delete_user", app.admin.DeleteUser),
+          (r"/admin", app.admin.AdminHome),          
           (r"/admin/deleted_posts", app.admin.DeletedPosts),
           (r"/admin/sort_posts", app.admin.ReCalculateScores),
           (r"/admin/stats", app.admin.AdminStats),
@@ -61,9 +60,10 @@ class Application(tornado.web.Application):
           (r"/generate_hackpad/?", app.admin.GenerateNewHackpad),
           (r"/list_hackpads", app.admin.ListAllHackpad),
           (r"/posts/([^\/]+)/mute", app.admin.Mute),
+          (r"/admin/users", app.admin.AdminUsers),
           (r"/users/(?P<username>[A-z-+0-9]+)/ban", app.admin.BanUser),
           (r"/users/(?P<username>[A-z-+0-9]+)/unban", app.admin.UnBanUser),
-          (r"/admin/users", app.admin.AdminUsers),
+          (r"/users/(?P<username>[A-z-+0-9]+)/delete_user", app.admin.DeleteUser),
 
           # api stuff
           (r"/api/incr_comment_count", app.api.DisqusCallback),

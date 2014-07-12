@@ -134,6 +134,9 @@ def get_delete_posts_count():
 def get_post_count_by_tag(tag):
     return len(list(db.post.find({'tags':tag})))
 
+def get_post_count_by_user(username):
+    return len(list(db.post.find({'username':username, 'deleted':False})))
+
 ###########################
 ### GET LIST OF POSTS BY CRITERIA
 ###########################
@@ -171,7 +174,7 @@ def update_post_score(slug, score, scores):
     return db.post.update({'slug':slug}, {'$set':{'daily_sort_score': score, 'scores': scores}})
 
 def delete_all_posts_by_user(screen_name):
-    db.post.update({'user.screen_name':screen_name}, {'$set':{'deleted':True, 'date_delated': datetime.datetime.utcnow()}}, multi=True)
+    db.post.update({'user.screen_name':screen_name}, {'$set':{'deleted':True, 'date_delated': datetime.utcnow()}}, multi=True)
 
 ###########################
 ### ADD A NEW POST
@@ -183,6 +186,7 @@ def insert_post(post):
         slug = '%s-%i' % (slug, slug_count)
     post['slug'] = slug
     post['slugs'] = [slug]
+    post['deleted'] = False
     if 'subscribed' not in post.keys():
         post['subscribed'] = []
     db.post.update({'url':post['slug'], 'user.screen_name':post['user']['screen_name']}, post, upsert=True)

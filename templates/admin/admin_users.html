@@ -8,14 +8,19 @@
 			<th>Username</th>
 			<th>Email</th>
 			<th>Role</th>
-			<th>Delete user's posts</th>
-			<th>Blacklist user</th>
+			<th>Posts</th>
+			<th>Ban</th>
 		</thead>
 		<tbody>
 			{% for u in users %}
 			<tr>
 				<td>{{ u['user']['id_str'] }}</td>
-				<td><a href="/user/{{ u['user']['username'] }}">{{ u['user']['username'] }}</a></td>
+				<td>
+					<a href="/user/{{ u['user']['username'] }}">{{ u['user']['username'] }}</a>
+					{% if ('is_blacklisted' in u['user']) and u['user']['is_blacklisted'] %}
+						<span class="label label-danger">Blacklisted</span>
+					{% end %}
+				</td>
 				<td>{{ u['email_address'] }}</td>
 				<td>
 					<form method="POST">
@@ -30,8 +35,17 @@
 						</select>
 					</form>
 				</td>
-				<td>Delete posts…</td>
-				<td>Blacklist…</td>
+				<td>
+					{{get_post_count(u['user']['username'])}}
+					<a href = "/users/{{ u['user']['username'] }}/delete_user" ><i class="glyphicon glyphicon-trash"></i></a>
+				</td>
+				<td>
+					{% if ('is_blacklisted' in u['user']) and u['user']['is_blacklisted'] %}
+						<a href = "/users/{{ u['user']['username'] }}/unban" >Unban…</a>
+					{% else %}
+						<a href = "/users/{{ u['user']['username'] }}/ban" >Ban…</a>
+					{% end %}
+				</td>
 
 			</tr>
 			{% end %}

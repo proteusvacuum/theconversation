@@ -132,6 +132,7 @@ class AdminHome(app.basic.BaseHandler):
 class AdminUsers(app.basic.BaseHandler):
     @tornado.web.authenticated
     def get(self):
+        logging.info("there")
         if self.current_user_role() not in settings.get('admin_roles'):
             self.redirect('/')
         else:
@@ -140,14 +141,16 @@ class AdminUsers(app.basic.BaseHandler):
                 users = users, 
                 admin_roles = settings.get('admin_roles'), 
                 user_roles = settings.get('user_roles'),
-                administrators = settings.get('administrators')
+                administrators = settings.get('administrators'),
+                get_post_count = postsdb.get_post_count_by_user
                 )
     
     def post(self):
         user = userdb.get_user_by_id_str(self.get_argument('uid', ''))
         newRole = self.get_argument('role', '')
-        user['role'] = newRole
-        userdb.save_user(user)
+        if user:
+            user['role'] = newRole
+            userdb.save_user(user)
         
         self.redirect('/admin/users')
 ###########################
@@ -170,22 +173,23 @@ class AdminStats(app.basic.BaseHandler):
 ###########################
 class BanUser(app.basic.BaseHandler):
     @tornado.web.authenticated
-    def get(self, screen_name):
+    def get(self, username):
+        logging.info("here")
         if self.current_user_role() in settings.get('admin_roles'):
-            user = userdb.get_user_by_screen_name(screen_name)
+            user = userdb.get_user_by_screen_name(username)
             if user:
                 user['user']['is_blacklisted'] = True
                 userdb.save_user(user)
-        self.redirect('/')
+        self.redirect('/admin/users')
 
 ###########################
-### List posts that are marekd as deleted
-### /admin/delete_user
+### Removes all users posts
+### /admin/deleted_posts
 ###########################
 class DeletedPosts(app.basic.BaseHandler):
     @tornado.web.authenticated
     def get(self):
-        if not self.current_user_can('delete_posts'):
+        if not self.current_user_role() in settings.get('admin_roles'):
             self.redirect('/')
         else:
             page = abs(int(self.get_argument('page', '1')))
@@ -198,16 +202,16 @@ class DeletedPosts(app.basic.BaseHandler):
 
 ###########################
 ### Mark all shares by a user as 'deleted'
-### /admin/deleted_posts
+### /admin/(?P<username>[A-z-+0-9]+)/delete_user
 ###########################
 class DeleteUser(app.basic.BaseHandler):
     @tornado.web.authenticated
-    def get(self):
-        if not self.current_user_can('delete_users'):
+    def get(self, username):
+        if not self.current_user_role() in settings.get('admin_roles'):
             self.redirect('/')
         else:
-            msg = self.get_argument('msg', '')
-            self.render('admin/delete_user.html', msg=msg)
+            postsdb.delete_all_posts_by_user(username)
+            self.redirect('/admin/users')
 
     @tornado.web.authenticated
     def post(self):
@@ -277,13 +281,13 @@ class ReCalculateScores(app.basic.BaseHandler):
 ###########################
 class UnBanUser(app.basic.BaseHandler):
     @tornado.web.authenticated
-    def get(self, screen_name):
-        if self.current_user in settings.get('staff'):
-            user = userdb.get_user_by_screen_name(screen_name)
+    def get(self, username):
+        if self.current_user_role() in settings.get('admin_roles'):
+            user = userdb.get_user_by_screen_name(username)
             if user:
                 user['user']['is_blacklisted'] = False
                 userdb.save_user(user)
-        self.redirect('/')
+        self.redirect('/admin/users')
 
 ###########################
 ### Manage Disqus Data
