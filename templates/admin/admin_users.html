@@ -1,0 +1,41 @@
+{% extends ../base.html %}
+
+{% block content %}
+<h1>Administrate Users</h1>
+	<table class="table">
+		<thead>
+			<th>Id</th>
+			<th>Username</th>
+			<th>Email</th>
+			<th>Role</th>
+			<th>Delete user's posts</th>
+			<th>Blacklist user</th>
+		</thead>
+		<tbody>
+			{% for u in users %}
+			<tr>
+				<td>{{ u['user']['id_str'] }}</td>
+				<td>{{ u['user']['username'] }}</td>
+				<td>{{ u['email_address'] }}</td>
+				<td>
+					<form method="POST">
+						<input type="hidden" name="uid" value="{{ u['user']['id_str'] }}" />
+						<select name="role" class="form-control" onchange="this.form.submit()"  {% if u['user']['username'] in administrators %} disabled {% end %}>
+							{% for role in admin_roles %}
+							<option {% if role == u['role'] %} selected {% end %} value="{{role}}">{{role}}</option>
+							{% end %}
+							{% for role in user_roles %}
+							<option {% if role == u['role'] %} selected {% end %} value="{{role}}">{{role}}</option>
+							{% end %}
+						</select>
+					</form>
+				</td>
+				<td>Delete posts…</td>
+				<td>Blacklist…</td>
+
+			</tr>
+			{% end %}
+		</tbody>
+	</table>
+
+{% end %}

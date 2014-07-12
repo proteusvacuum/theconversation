@@ -68,7 +68,7 @@ class DailyEmailHistory(app.basic.BaseHandler):
 class AdminCompany(app.basic.BaseHandler):
     @tornado.web.authenticated
     def get(self):
-        if self.current_user not in settings.get('staff'):
+        if self.current_user_role not in settings.get('admin_roles'):
             self.redirect('/')
         else:
             slug = self.get_argument('slug', '')
@@ -120,18 +120,43 @@ class AdminCompany(app.basic.BaseHandler):
 class AdminHome(app.basic.BaseHandler):
     @tornado.web.authenticated
     def get(self):
-        if self.current_user not in settings.get('staff'):
+        if self.current_user_role() not in settings.get('admin_roles'):
             self.redirect('/')
         else:
             self.render('admin/admin_home.html')
 
+###########################
+### Change Users Roles
+### /admin/users
+###########################
+class AdminUsers(app.basic.BaseHandler):
+    @tornado.web.authenticated
+    def get(self):
+        if self.current_user_role() not in settings.get('admin_roles'):
+            self.redirect('/')
+        else:
+            users = userdb.get_all()
+            self.render('admin/admin_users.html', 
+                users = users, 
+                admin_roles = settings.get('admin_roles'), 
+                user_roles = settings.get('user_roles'),
+                administrators = settings.get('administrators')
+                )
+    
+    def post(self):
+        user = userdb.get_user_by_id_str(self.get_argument('uid', ''))
+        newRole = self.get_argument('role', '')
+        user['role'] = newRole
+        userdb.save_user(user)
+        
+        self.redirect('/admin/users')
 ###########################
 ### View system statistics
 ### /admin/stats
 ###########################
 class AdminStats(app.basic.BaseHandler):
     def get(self):
-        if self.current_user not in settings.get('staff'):
+        if self.current_user_role() not in settings.get('admin_roles'):
             self.redirect('/')
         else:
             total_posts = postsdb.get_post_count()
@@ -146,7 +171,7 @@ class AdminStats(app.basic.BaseHandler):
 class BanUser(app.basic.BaseHandler):
     @tornado.web.authenticated
     def get(self, screen_name):
-        if self.current_user in settings.get('staff'):
+        if self.current_user_role() in settings.get('admin_roles'):
             user = userdb.get_user_by_screen_name(screen_name)
             if user:
                 user['user']['is_blacklisted'] = True
@@ -196,7 +221,7 @@ class DeleteUser(app.basic.BaseHandler):
                 # get the author of this post
                 screen_name = post['user']['screen_name']
                 postsdb.delete_all_posts_by_user(screen_name)
-            self.ender('admin/delete_user.html', msg=msg)
+            self.render('admin/delete_user.html', msg=msg)
 
 ###########################
 ### Create a new hackpad
@@ -204,7 +229,7 @@ class DeleteUser(app.basic.BaseHandler):
 ###########################
 class GenerateNewHackpad(app.basic.BaseHandler):
     def get(self):
-        if self.current_user not in settings.get('staff'):
+        if self.current_user_role() not in settings.get('admin_roles'):
             self.redirect('/')
         else:
             hackpads = hackpad.create_hackpad()
@@ -216,7 +241,7 @@ class GenerateNewHackpad(app.basic.BaseHandler):
 ###########################
 class ListAllHackpad(app.basic.BaseHandler):
     def get(self):
-        if self.current_user not in settings.get('staff'):
+        if self.current_user_role() not in settings.get('admin_roles'):
             self.redirect('/')
         else:
             hackpads = hackpad.list_all()
@@ -282,16 +307,16 @@ class ManageDisqus(app.basic.BaseHandler):
 ###########################
 class Gmail(app.basic.BaseHandler):
     def get(self):
-        if self.current_user not in settings.get('staff'):
+        if self.current_user_role() not in settings.get('admin_roles'):
             self.redirect('/')
+        else:
+            query = self.get_argument('q', '')
+            accounts = gmaildb.get_all()
+            usv_members = []
+            for usv_member in accounts:
+                usv_members.append(usv_member['name'])
 
-        query = self.get_argument('q', '')
-        accounts = gmaildb.get_all()
-        usv_members = []
-        for usv_member in accounts:
-            usv_members.append(usv_member['name'])
-
-        return self.render('admin/gmail.html', query=query, accounts=usv_members)
+            return self.render('admin/gmail.html', query=query, accounts=usv_members)
 
 
 ###########################
@@ -300,7 +325,7 @@ class Gmail(app.basic.BaseHandler):
 ###########################
 class GmailAPI(app.basic.BaseHandler):
     def get(self):
-        if self.current_user not in settings.get('staff'):
+        if self.current_user_role() not in settings.get('admin_roles'):
             self.write(json.dumps({'err': 'Not logged in'}))
 
         query = self.get_argument('q', '')

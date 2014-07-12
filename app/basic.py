@@ -14,7 +14,6 @@ class BaseHandler(tornado.web.RequestHandler):
         #user = self.get_current_user()
         #css_file = "%s/css/threatvector.css" % settings.tornado_config['static_path']
         #css_modified_time = os.path.getmtime(css_file)
-
         self.vars = {
           #'user': user,
           #'css_modified_time': css_modified_time
@@ -76,6 +75,17 @@ class BaseHandler(tornado.web.RequestHandler):
                     result = True
             except:
                 result = False
+        return result
+
+    def current_user_role(self): 
+        """
+        Returns the current user's role
+        """
+        result = ""
+        u = userdb.get_user_by_screen_name(self.current_user)
+        if u and 'role' in u.keys():
+            result = u['role']
+
         return result
 
     def api_response(self, data):

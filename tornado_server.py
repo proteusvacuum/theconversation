@@ -1,5 +1,3 @@
-import newrelic.agent
-newrelic.agent.initialize('newrelic.ini')
 import os
 import tornado.httpserver
 import tornado.httpclient
@@ -24,6 +22,10 @@ import app.stats
 import app.twitter
 import app.error
 import templates
+
+if os.environ['ENVIRONMENT'] == "prod" :
+  import newrelic.agent
+  newrelic.agent.initialize('newrelic.ini')
 
 class Application(tornado.web.Application):
     def __init__(self):
@@ -61,6 +63,7 @@ class Application(tornado.web.Application):
           (r"/posts/([^\/]+)/mute", app.admin.Mute),
           (r"/users/(?P<username>[A-z-+0-9]+)/ban", app.admin.BanUser),
           (r"/users/(?P<username>[A-z-+0-9]+)/unban", app.admin.UnBanUser),
+          (r"/admin/users", app.admin.AdminUsers),
 
           # api stuff
           (r"/api/incr_comment_count", app.api.DisqusCallback),

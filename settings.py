@@ -18,8 +18,8 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 
 options = {
   'dev' : {
-    'mongo_database' : {'host' : os.environ.get('MONGODB_URL'), 'port' : 27017, 'db' : os.environ.get('DB_NAME')},
-    'base_url' : os.environ.get('BASE_URL'),
+    'mongo_database' : {'host' : os.environ.get('MONGODB_URL_DEV'), 'port' : 27017, 'db' : os.environ.get('DB_NAME_DEV')},
+    'base_url' : os.environ.get('BASE_URL_DEV'),
   },
   'test' : {
     'mongo_database' : {'host' : os.environ.get('MONGODB_URL'), 'port' : 27017, 'db' : os.environ.get('DB_NAME')},
@@ -69,9 +69,18 @@ default_options = {
   'read_only' : False,
   'max_simultaneous_connections' : 10,
   'hot_post_set_count': 200,
-  'staff':[ 'nickgrossman'],
-
+  'staff':[ 'faridrener'],
+  'administrators':['faridrener'],
+  'admin_roles': ['staff'],
+  'user_roles':['reader', 'poster'],
   # define the various roles and what capabilities they support
+  'reader_capabilities':[
+    'read_posts'
+  ],
+  'poster_capabilities': [
+    'create_new_posts',
+    'read_posts'
+  ],
   'staff_capabilities': [
     'send_daily_email',
     'see_admin_link',
