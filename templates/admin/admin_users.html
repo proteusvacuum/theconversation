@@ -15,7 +15,7 @@
 			{% for u in users %}
 			<tr>
 				<td>{{ u['user']['id_str'] }}</td>
-				<td>{{ u['user']['username'] }}</td>
+				<td><a href="/user/{{ u['user']['username'] }}">{{ u['user']['username'] }}</a></td>
 				<td>{{ u['email_address'] }}</td>
 				<td>
 					<form method="POST">

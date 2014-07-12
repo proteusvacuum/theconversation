@@ -123,7 +123,7 @@ def get_post_count_by_query(query):
     return len(list(db.post.find({'$or':[{'title':query_regex}, {'body_raw':query_regex}]})))
 
 def get_post_count():
-    return len(list(db.post.find({'date_created':{'$gt': datetime.datetime.strptime("10/12/13", "%m/%d/%y")}})))
+    return len(list(db.post.find({'date_created':{'$gt': datetime.strptime("10/12/13", "%m/%d/%y")}})))
 
 def get_post_count_for_range(start_date, end_date):
     return len(list(db.post.find({'date_created':{'$gte': start_date, '$lte': end_date}})))
