@@ -176,6 +176,9 @@ def update_post_score(slug, score, scores):
 def delete_all_posts_by_user(screen_name):
     db.post.update({'user.screen_name':screen_name}, {'$set':{'deleted':True, 'date_delated': datetime.utcnow()}}, multi=True)
 
+def delete_post(slug):
+  db.post.update({'slug':slug}, {'$set':{'deleted':True, 'date_delated': datetime.utcnow()}})
+
 ###########################
 ### ADD A NEW POST
 ###########################

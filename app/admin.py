@@ -68,7 +68,7 @@ class DailyEmailHistory(app.basic.BaseHandler):
 class AdminCompany(app.basic.BaseHandler):
     @tornado.web.authenticated
     def get(self):
-        if self.current_user_role not in settings.get('admin_roles'):
+        if self.current_user_role() not in settings.get('admin_roles'):
             self.redirect('/')
         else:
             slug = self.get_argument('slug', '')

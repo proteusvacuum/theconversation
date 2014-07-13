@@ -22,8 +22,11 @@
           <div class="post">
           {% set p = post %}
           {% include post_snippet.html %}
-          {% if post['user']['screen_name'] == current_user or current_user in settings.get('staff') %}
+          {% if post['user']['screen_name'] == current_user or current_user_can('edit_posts') %}
             <p style="padding-left: 20px;"><a href="/posts/{{ post['slug'] }}/edit" class="btn">Edit this post</a></p>
+          {% end %}
+          {% if current_user_can('delete_posts') %}
+            <p style="padding-left: 20px;"><a href="/posts/{{ post['slug'] }}/delete" class="btn">Delete this post</a></p>
           {% end %}
           </div>
           

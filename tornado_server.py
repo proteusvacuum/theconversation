@@ -105,6 +105,7 @@ class Application(tornado.web.Application):
           (r"/posts/([^\/]+)/superupvote", app.posts.SuperUpVote),
           (r"/posts/([^\/]+)/superdownvote", app.posts.SuperDownVote),
           (r"/posts/([^\/]+)/edit", app.posts.EditPost),
+          (r"/posts/([^\/]+)/delete", app.posts.DeletePost),
           (r"/day/(?P<day>[A-z-+0-9]+)$", app.posts.ListPosts),
           (r"/posts/(.+)", app.posts.ViewPost),
           (r"/posts$", app.posts.ListPosts),

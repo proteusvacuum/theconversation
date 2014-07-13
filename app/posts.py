@@ -30,7 +30,10 @@ class NewPost(app.basic.BaseHandler):
     def get(self):
         post = {}
         post['title'] = self.get_argument('title', '')
-        post['url'] = urlparse(self.get_argument('url', ''),'http').geturl()
+        url = self.get_argument('url', '')
+        if not url.startswith('http'):
+            url = '%s%s' % ('http://', url)
+        post['url']=url
         is_bookmarklet = False
         if self.request.path.find('/bookmarklet') == 0:
             is_bookmarklet = True
@@ -51,6 +54,19 @@ class EditPost(app.basic.BaseHandler):
         else:
             # not available to edit right now
             self.redirect('/posts/%s' % slug)
+###############
+### DELETE A POST
+### /posts/([^\/]+)/delete
+###############
+class DeletePost(app.basic.BaseHandler):
+    @tornado.web.authenticated
+    def get(self, slug):
+        logging.info(self.current_user_role)
+        if self.current_user_role() in settings.get('admin_roles'):
+            # available to edit this post
+            logging.info("deleting post")
+            postsdb.delete_post(slug)
+            self.redirect('/')
 
 ##################
 ### FEATURED POSTS
@@ -177,7 +193,10 @@ class ListPosts(app.basic.BaseHandler):
         post = {}
         post['slug'] = self.get_argument('slug', None)
         post['title'] = self.get_argument('title', '')
-        post['url'] = urlparse(self.get_argument('url', ''),'http').geturl()
+        url = self.get_argument('url', '')
+        if not url.startswith('http'):
+            url = '%s%s' % ('http://', url)
+        post['url'] = url
         post['body_raw'] = self.get_argument('body_raw', '')
         post['tags'] = self.get_argument('tags', '').split(',')
         post['featured'] = self.get_argument('featured', '')
