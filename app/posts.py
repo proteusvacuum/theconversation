@@ -30,7 +30,7 @@ class NewPost(app.basic.BaseHandler):
     def get(self):
         post = {}
         post['title'] = self.get_argument('title', '')
-        post['url'] = self.get_argument('url', '')
+        post['url'] = urlparse(self.get_argument('url', ''),'http').geturl()
         is_bookmarklet = False
         if self.request.path.find('/bookmarklet') == 0:
             is_bookmarklet = True
@@ -177,7 +177,7 @@ class ListPosts(app.basic.BaseHandler):
         post = {}
         post['slug'] = self.get_argument('slug', None)
         post['title'] = self.get_argument('title', '')
-        post['url'] = self.get_argument('url', '')
+        post['url'] = urlparse(self.get_argument('url', ''),'http').geturl()
         post['body_raw'] = self.get_argument('body_raw', '')
         post['tags'] = self.get_argument('tags', '').split(',')
         post['featured'] = self.get_argument('featured', '')
