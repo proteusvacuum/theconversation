@@ -4,6 +4,7 @@
   <div id="main" role="main">
     <section class="featured-feed centered clearfix">
       <h1 class="general-page-headline">Deleted Posts</h1>
+      <a href="/admin/deleted_posts/delete_all" class="btn">Permanently Delete all posts (Can't be undone!)</a>
       <ul class="feed">
         {% for post in deleted_posts %}
           <div class="featured-post">
@@ -12,7 +13,7 @@
               {% if post['url'] %}
                 <a href="{{ post['url'] }}" class="source" target="_blank">{{ urlparse(post['url']).netloc }}</a>
               {% else %}
-                <a href="/posts/{{ post['slug'] }}" class="source">usv.com</a>
+                <a href="/posts/{{ post['slug'] }}" class="source">self</a>
               {% end %}
               <div class="excerpt">{{ post['body_truncated'] }}</div>
               <div class="meta">
@@ -29,10 +30,12 @@
                 <a class="dsq-comment-count" href="/posts/{{ post['slug'] }}" data-disqus-url="/posts/{{post['slug']}}" data-disqus-identifier="{{ str(post['slug']) }}" target="_blank">{{ post['comment_count'] }} comment{{ 's' if post['comment_count'] != 1 else '' }}</a>
               </div>
             </div>
+            <a href="/posts/{{ post['slug'] }}/restore" class="btn">Restore this post</a>
+            <a href="/posts/{{ post['slug'] }}/permanently_delete" class="btn">Permanently delete this post (can't be undone)</a>
           </div>
         {% end %}
       </ul>
-      {% module paginator(page, per_page, total_count, show_pages=True) %}
+      {% comment module paginator(page, per_page, total_count, show_pages=True) %}
     </section>
   </div>
 {% end %}

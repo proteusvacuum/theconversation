@@ -104,7 +104,7 @@ def get_sad_posts(per_page=50, page=1):
     return list(db.post.find({'date_created':{'$gt': datetime.datetime.strptime("10/12/13", "%m/%d/%y")}, 'votes':1, 'comment_count':0, 'deleted': { "$ne": True } , 'featured': False}, sort=[('date_created', pymongo.DESCENDING)]).skip((page-1)*per_page).limit(per_page))
 
 def get_deleted_posts(per_page=50, page=1):
-    return list(db.post.find({'deleted':True}, sort=[('date_deleted', pymongo.DESCENDING)]).skip((page-1)*per_page).limit(per_page))
+    return list(db.post.find({'deleted':True}, sort=[('date_deleted', pymongo.DESCENDING)]))
 
 ###########################
 ### AGGREGATE QUERIES
@@ -128,7 +128,7 @@ def get_post_count():
 def get_post_count_for_range(start_date, end_date):
     return len(list(db.post.find({'date_created':{'$gte': start_date, '$lte': end_date}})))
 
-def get_delete_posts_count():
+def get_deleted_posts_count():
     return len(list(db.post.find({'deleted':True})))
 
 def get_post_count_by_tag(tag):
@@ -174,10 +174,19 @@ def update_post_score(slug, score, scores):
     return db.post.update({'slug':slug}, {'$set':{'daily_sort_score': score, 'scores': scores}})
 
 def delete_all_posts_by_user(screen_name):
-    db.post.update({'user.screen_name':screen_name}, {'$set':{'deleted':True, 'date_delated': datetime.utcnow()}}, multi=True)
+    db.post.update({'user.screen_name':screen_name}, {'$set':{'deleted':True, 'date_deleted': datetime.utcnow()}}, multi=True)
 
 def delete_post(slug):
-  db.post.update({'slug':slug}, {'$set':{'deleted':True, 'date_delated': datetime.utcnow()}})
+  db.post.update({'slug':slug}, {'$set':{'deleted':True, 'date_deleted': datetime.utcnow()}})
+
+def restore_post(slug):
+  db.post.update({'slug':slug}, {'$set':{'deleted':False, 'date_deleted': 'restored'}})
+
+def permanently_delete_post(slug):
+  db.post.remove({'slug':slug})  
+
+def permanently_delete_posts():
+  db.post.remove({'deleted':True})
 
 ###########################
 ### ADD A NEW POST

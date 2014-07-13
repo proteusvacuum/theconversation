@@ -52,6 +52,7 @@ class Application(tornado.web.Application):
           # admin stuff
           (r"/admin", app.admin.AdminHome),          
           (r"/admin/deleted_posts", app.admin.DeletedPosts),
+          (r"/admin/deleted_posts/delete_all", app.posts.DeleteAllDeletedPosts),
           (r"/admin/sort_posts", app.admin.ReCalculateScores),
           (r"/admin/stats", app.admin.AdminStats),
           (r"/admin/disqus", app.admin.ManageDisqus),
@@ -106,6 +107,8 @@ class Application(tornado.web.Application):
           (r"/posts/([^\/]+)/superdownvote", app.posts.SuperDownVote),
           (r"/posts/([^\/]+)/edit", app.posts.EditPost),
           (r"/posts/([^\/]+)/delete", app.posts.DeletePost),
+          (r"/posts/([^\/]+)/restore", app.posts.RestorePost),
+          (r"/posts/([^\/]+)/permanently_delete", app.posts.PermanentlyDelete),
           (r"/day/(?P<day>[A-z-+0-9]+)$", app.posts.ListPosts),
           (r"/posts/(.+)", app.posts.ViewPost),
           (r"/posts$", app.posts.ListPosts),

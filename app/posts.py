@@ -61,13 +61,34 @@ class EditPost(app.basic.BaseHandler):
 class DeletePost(app.basic.BaseHandler):
     @tornado.web.authenticated
     def get(self, slug):
-        logging.info(self.current_user_role)
         if self.current_user_role() in settings.get('admin_roles'):
-            # available to edit this post
             logging.info("deleting post")
             postsdb.delete_post(slug)
             self.redirect('/')
 
+class DeleteAllDeletedPosts(app.basic.BaseHandler):
+    @tornado.web.authenticated
+    def get(self):
+        if self.current_user_role() in settings.get('admin_roles'):
+            # available to edit this post
+            postsdb.permanently_delete_posts()
+            self.redirect('/admin/deleted_posts')
+
+class PermanentlyDelete(app.basic.BaseHandler):
+    @tornado.web.authenticated
+    def get(self, slug):
+        if self.current_user_role() in settings.get('admin_roles'):
+            # available to edit this post
+            postsdb.permanently_delete_post(slug)
+            self.redirect('/admin/deleted_posts')
+
+class RestorePost(app.basic.BaseHandler):
+    @tornado.web.authenticated
+    def get(self, slug):
+        if self.current_user_role() in settings.get('admin_roles'):
+            # available to edit this post
+            postsdb.restore_post(slug)
+            self.redirect('/admin/deleted_posts')
 ##################
 ### FEATURED POSTS
 ### /featured.*$
