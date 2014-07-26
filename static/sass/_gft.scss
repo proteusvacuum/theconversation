@@ -1,0 +1,119 @@
+body{
+	font-family: $body-font-family;
+	background-color: $body-bg;
+	color: $primary-color;
+	background: url($body-bg-img) !important;
+}
+
+h1{
+	font-size: 37px;
+	font-weight: 700;
+	span.brand{
+		color: $green-color;
+	}
+}
+
+h2{
+	font-size: 35px;
+	line-height: 38px;
+	color: #53596e;
+	font-weight: 500;
+}
+
+h2 a{
+	color: #8d8e92;
+	&.conversation{
+		color: #de93c3;
+	}
+	&.contact{
+		color: #e5ae57;
+	}
+}
+
+h3{
+	font-size: 17px;
+	color: #53596e;
+	font-weight: 300;
+}
+
+nav#main-nav{
+	&.home{
+		position: fixed;
+		top: 0px;
+		z-index: 200;
+		width: 100%;
+		background-color: initial;
+		a.brand{display: none;}
+	}
+	padding-top: 20px;
+	margin-bottom: 15px;
+	height: 50px;
+	background-color: #fff;
+	a{
+		&:hover{
+			text-decoration: none;
+		}
+		padding-right: 40px;
+		margin-right: 10px;
+		width: 140px;
+		color: $primary-color;
+		font-size: 16px;
+		font-weight: 600;
+		
+	}
+	a.link{
+		border-bottom: 4px solid #53596e;
+		padding-bottom: 5px;
+	}
+	a.brand{
+		position: relative;
+		top:-5px;
+		width: 100%;
+		color: $brand-color;
+		font-size: 20px;
+		font-weight: 700;
+	}
+	a.conversation:hover{
+		color: #de93c3;
+	}
+	a.contact:hover{
+		color: #e5ae57;
+	}
+}
+footer{
+	margin-top: 25px;
+	a.footer-link{
+		font-size: 9px;
+	}
+}
+.cta-container{
+	margin-top: 90px;
+	h2{
+		margin-top: 5px;
+	}
+	hr{
+		width: 70px;
+		margin-top: 10px;
+		border-top: 4px solid $primary-color;
+	}
+	.home-underline{
+		width: 70px;
+		margin-top: 10px;
+	}
+	.joining-movement{
+		margin-top:15px;
+		.down-arrow{
+			font-size: 30px;
+			top: 10px;
+			padding-right:10px;
+		}
+		h3{
+			line-height: 40px;
+		}
+	}
+}
+
+.partners{
+	margin-top: 25px;
+}
+

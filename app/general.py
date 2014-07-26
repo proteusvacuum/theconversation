@@ -11,3 +11,8 @@ class About(app.basic.BaseHandler):
         # get the last 6 posts tagged thesis (and published by staff)
         related_posts = postsdb.get_latest_staff_posts_by_tag('thesis', 6)
         self.render('general/about.html', related_posts=related_posts)
+
+
+class HomePage(app.basic.BaseHandler):
+	def get(self):
+		self.render('general/home.html')

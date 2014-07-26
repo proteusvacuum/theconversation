@@ -103,26 +103,6 @@ $(function() {
       $(window).on('resize', hide_extra_posts);
     }
 
-    var jPM = $.jPanelMenu({
-		menu: '#mobile-menu',
-		trigger: '#menu-trigger',
-		animated: false,
-    keyboardShortcuts: false,
-		closeOnContentClick: false,
-		beforeOpen: function(){
-			$('#jPanelMenu-menu').css("visibility","visible");
-		}
-	});
-
-	jPM.on();
-
-	$(window).resize(function(){
-		var sw = $(window).width();
-		if( sw > 768 && jPM.isOpen() ) {
-			jPM.close();
-		}
-	}).resize();
-
   USV_remove_tinymce();
   USV_setup_tinymce();
 

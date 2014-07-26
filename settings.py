@@ -33,7 +33,7 @@ options = {
 
 default_options = {
   'active_theme': "default",
-  'site_title': "The Conversation",
+  'site_title': "Grow Food Tech",
   'site_intro': "This is a website where people talk",
 
   'project_root': os.path.abspath(os.path.join(os.path.dirname(__file__))),

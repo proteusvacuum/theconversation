@@ -41,6 +41,9 @@ class Application(tornado.web.Application):
         }
 
         handlers = [
+          #Home
+          (r'/$', app.general.HomePage),
+
           # account stuff
           (r"/auth/email/?", app.user.EmailSettings),
           (r"/auth/logout/?", app.user.LogOut),
@@ -114,7 +117,7 @@ class Application(tornado.web.Application):
           (r"/posts$", app.posts.ListPosts),
           (r"/widget/demo.*?", app.posts.WidgetDemo),
           (r"/widget.*?", app.posts.Widget),
-          (r'/$', app.posts.ListPosts),
+          (r'/converse$', app.posts.ListPosts),
         ]
 
         app_settings.update({
