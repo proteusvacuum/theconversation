@@ -1,0 +1,654 @@
+/*
+#
+# =Posts
+#
+# =========================================================*/
+
+.feed-container {
+    clear: both;
+}
+.jscroll-added {
+    clear: both;
+}
+
+body.home #content > .container {
+    padding-top: 5px;
+}
+div.subsection.section-heading.day-heading {
+  text-align: left !important;  
+  margin: 0 0 10px;
+  padding: 25px0px 5px 5px 0px;
+  border-bottom: none !important;
+}
+#todays-posts div.subsection.section-heading.day-heading,
+div.subsection.section-heading.day-heading.featured
+ {
+    padding-top: 0;
+}
+div.subsection.section-heading.day-heading h2 {
+    margin: 0;
+    padding: 0px 0 0;
+    font-size: 1.1em;
+    border-bottom: none !important;
+    text-align: left;
+}
+div.subsection.section-heading .more {
+    font-size: .75em;
+    text-transform: none;
+    display: block;
+    padding-top: 5px;
+}
+
+.day-filter .nav {
+    margin-top: 0px;
+    font-size: .75em;
+    text-transform: none;
+}
+.day-filter li {
+    display: none;
+}
+#todays-posts .day-filter li,
+.day-filter li.day-permalink {
+    display: block;
+}
+#todays-posts li.day-permalink {
+    display: none;
+}
+.day-filter ul.nav>li>a,
+.day-filter ul.nav>li>span {
+    padding: 3px 7px;
+    border-radius: 3px;
+}
+.day-filter ul.nav>li>span {
+    display: block;
+    color: #676767;
+}
+.day-filter ul.nav>li.active>a {
+    background: #e3e3e3;
+    color: #444;
+    font-weight: bold;
+}
+
+#submit-modal .modal-header,
+#submit-modal .modal-body {
+    text-align: center;
+}
+
+
+.post {
+    list-style:none;
+    position:relative;
+    clear: both;
+    padding: 0px;
+    margin: 0 0 20px;
+    border-radius: 3px;
+}
+.feed .post.hover {
+    /*background: #f5f8fa !important;*/
+}
+.feed .post,
+.single .post {
+    margin: 0 0px 20px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
+.feed .post.featured {
+    padding: 0 0 10px;
+    margin-bottom: 15px;
+}
+.post .meta.meta-top {
+    padding: 8px 0 0 20px;
+    display: block;
+    /*border-bottom: 1px solid #eee;*/
+    height: 33px;
+    /*background: url('/static/img/linen.png') top left repeat;*/
+}
+.post-sm.has-excerpt .meta-top {
+    cursor: pointer;
+}
+.feed .post .meta.meta-top {
+    padding-top: 12px;
+}
+.post .user {
+    position: absolute;
+    height: 75px;
+    width: 50px;
+    margin-right: 15px;
+    font-size: 80%;
+    color: #999;
+    margin-left: 0px;
+    top: 0;
+    left: -34px;
+}
+.post .user .avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 3px 0 0 3px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+.post a.username-link {
+    color: #888 !important;
+}
+.post .volume {
+    position: absolute;
+    top: 4px;
+    left: -30px;
+    width: 30px;
+    background: transparent;
+}
+.post-lg .volume {
+    top: 2px;
+}
+.single .post .volume {
+    top: 20px;
+}
+.post .sort_score {
+    float: right;
+}
+#posts .post .comment-count {
+    position: absolute;
+    display: block;
+
+    height: 34px;
+    width: 70px;
+    
+    top: 0px;
+    right: 0px;
+    
+    font-size: 20px;
+    text-align: center;
+    
+    background-color: lighten($secondary-color, 25%);
+
+    padding: 5px;
+    text-decoration: none;
+}
+#posts .post .comment-count:hover {    
+    color: $brand-color;
+    background-color: #fff;
+}
+
+.post .meta {
+    line-height: 1em;
+    margin: 0;
+    padding: 0;
+    color:gray;
+    font-size:0.85em;
+}
+.post .content {
+    padding: 0;
+    margin: 0;
+}
+.post-lg .content.has-tags {
+}
+.post .excerpt {
+    margin: 0;
+    padding: 0 20px;
+    color: #555 !important;
+    /*border-bottom: 1px solid #eee;*/
+}
+.post .excerpt.hover,
+.post .meta-top.hover {
+    background: lightgreen;
+}
+.feed .post .excerpt {
+    padding: 6px 20px;
+}
+.feed .post-sm.has-excerpt .excerpt {
+    cursor: pointer;
+}
+.feed .post .excerpt:hover {
+    
+}
+.post a.expand {
+    display: none;
+    position: absolute;
+    top: 12px;
+    right: 200px;
+}
+.post .link {
+    position: relative;
+    /*background: #eeebee;*/
+    padding: 10px 20px 10px;
+    /*white-space: nowrap;
+    overflow-x: hidden;*/
+    border-top: 1px solid #ddd;
+    margin: 0;
+}
+.post-sm.has-excerpt .link {
+    cursor: pointer;
+}
+.post .link.hover {
+    background: lightblue;
+}
+.post .link span.glyphicon {
+    font-size: .7em;
+}
+.post .link .title {
+    font-size: 1em;
+}
+.post .link.has-tags .title {
+    
+}
+.post .tags {
+    position: absolute;
+    top: 12px;
+    right: 180px;
+}
+.feed .tags {
+    display: none;
+}
+
+.post .time {
+    display: none !important; 
+}
+.post .comment-count {
+    margin-left: 20px;
+    /*background: url('/static/img/icon-comment.png') left center no-repeat;*/
+
+}
+
+.post .title {
+    font-weight: 700;
+}
+body.staff .post .title {
+    /*margin-right: 100px !important;*/
+}
+.post .source {
+    display: inline;
+}
+.post .source a {
+    color: #999;
+}
+.post .excerpt p {
+    margin: 0 0 .5em;
+}
+.post .tags a {
+    color: #999 !important;
+    margin-left: 4px;    
+}
+.post .time-search {
+    margin-right: 0 !important;
+    margin-left: 10px;
+}
+.tweet-post {
+    float: right;
+    width: 100px;
+    margin: 0px 0px 0 !important;
+    padding: 10px 0px 3px 15px;
+}
+
+/* =bump it up */
+.supervote {
+    position: absolute;
+    top: 8px;
+    right: 35px;
+    text-align: center;
+    font-size: 70%;
+    white-space: nowrap;
+    opacity: .75em;
+    display: none;
+}
+.single .supervote {
+    display: none;
+}
+
+.feed .volume a {
+    text-align: center;
+    display: block;
+}
+.featured-post .volume {
+    width: 120px;
+}
+
+.volume .glyphicon {
+    font-size: 1.3em;
+    color: #86AA3B ;
+    color: #555;
+}
+.volume .value {
+    display: inline-block;
+    color: #86AA3B;
+    color: #555;
+    /*margin-right: 5px;*/
+    line-height: 1em;
+}
+.volume.bumped .value {
+    color: #555;
+    font-weight: normal;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.volume .supervote .value {
+    display: inline;
+    margin: 0 !important;
+}
+.volume .supervote .glyphicon {
+    display: inline;
+    margin: 0 3px 0 0 !important;
+}
+.volume .superupvote .value,
+.volume .superupvote .glyphicon {
+    color: #ccc !important;
+}
+.volume .superdownvote .value,
+.volume .superdownvote .glyphicon {
+    color: #ccc !important;
+}
+.volume a.votes-count {
+    /*color: #86AA3B !important;*/ /*GREEN*/
+    /*color: #aaa !important; */
+    width: 30px;
+    height: 36px;
+    border-radius: 3px 0 0 3px;
+    border-bottom: none;
+    padding: 18px 0 0 0;
+    position: relative;
+    background: transparent;
+    /*border: 1px solid #ddd !important;*/
+    box-shadow: none;
+    display: block;
+    /*width: 30px;*/
+    text-align: center;
+    /*background: #e3e3e3;*/
+    /*background: url('/static/img/linen.png')top left repeat;*/
+    background: #eee url("/static/img/icon-upvote-default.png") 50% 6px no-repeat;
+}
+.volume.bumped a.votes-count {
+    background-image: url("/static/img/icon-upvote-voted.png");
+    background-color: #eee;
+}
+.volume a.votes-count.no-votes {
+    /*padding-left: 15px;*/
+}
+.volume a.votes-count:hover {
+    background-color: #ddd;
+    background-image: url("/static/img/icon-upvote-hover.png");
+}
+
+.volume a.votes-count:hover span,
+.volume a.votes-count:hover span.glyphicon {
+    color: #333 !important;
+}
+.volume a.votes-count:hover a {
+    color: #333 !important;
+}
+.volume.bumped a.votes-count {
+
+}
+.volume.bumped a.votes-count .glyphicon {
+    /*color: #CE3B00 !important; */ /* RED */
+    /*color: #fff !important;
+    background: #86AA3B !important;*/
+    color: #bbb !important;
+}
+.volume .popover {
+    border-radius: 3px;
+    border-color: #ddd;    
+}
+
+.feed .volume span {
+display: block;
+}
+.voted_users {
+    font-size: .9em;
+    white-space: nowrap;
+}
+.voted_user {
+    margin-bottom: 10px;
+    white-space: nowrap;
+}
+.voted_user img {
+    width: 25px; height: 25px;
+    vertical-align: middle;
+}
+.volume .popover-title {
+    /*display: none;*/
+    text-align:center;
+    white-space: nowrap;
+}
+.volume .popover-content {
+    padding: 10px 6px 0;
+}
+.volume .popover-content p {
+    text-align:center;
+    margin: 0 6px 10px !important;
+    white-space: nowrap;
+}
+
+/* pinned */
+#pinned .excerpt * {
+    display: none;
+}
+#pinned .expand {
+    display: none;
+}
+
+/* Sm, Md, Lg variants */
+.post.post-lg .expand {
+    display: none;
+}
+.post-lg .title {
+    font-size: 1em !important;
+}
+.post-md .title {
+    font-size: 1em !important;
+}
+.post.post-sm .title {
+    font-size: 1em !important;
+    margin-top: 4px;
+}
+
+.feed .post-sm a.expand {
+    position: absolute;
+    top: 7px;
+    left: 175px;
+    color: #999;
+    display: none;
+}
+.post-sm .expand span {
+    margin: 0 !important;
+}
+.sidebar-widget .post-sm .tags {
+    
+}
+.post.featured .content {
+    margin-left: 65px !important;
+}
+.post.featured .user {
+    margin-left: 0;
+}
+
+.post-md .excerpt,
+.post-sm .excerpt {
+    display: none;
+}
+
+.post-sm .title {
+    display: inline !important;
+    margin-right: 10px !important;
+}
+.post-sm .source {
+    display: inline;
+    white-space: nowrap;
+}
+
+.post-sm .tags {
+    display: none;
+}
+.post.post-xs {
+    margin-bottom: 5px;
+}
+.post.post-xs .title {
+    display: block;
+    margin-bottom: 0;
+}
+.post.post-xs .link {
+    border-top: none;
+    margin-right: 70px;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 6px;
+}
+.post.post-xs .excerpt {
+    padding-top: 15px;
+    padding-bottom: 0;
+    padding-right: 80px;
+}
+.post.post-xs .user {
+    display: none;
+}
+.post.post-xs .xs-break {
+    display: block;
+}
+
+.post.post-xs .meta-top {
+    display: inline;
+    padding: 0;
+}
+.post.post-xs .username-link {
+    display: none;
+}
+.post .xs-author {
+    display: none;
+}
+.post.post-xs .xs-author {
+    display: inline;
+    font-size: .85em;
+    color: #777;
+    margin-left: 5px;
+    white-space: nowrap;
+}
+.post.post-xs .title {
+    font-size: .9em !important;
+}
+.post.post-xs .excerpt,
+.post.post-xs .expand,
+.post.post-xs .sort_score {
+    display: none;
+}
+
+
+/* =Single post overrides */
+.single .post {
+    margin-left: 35px;
+}
+.single .post .excerpt {
+    font-size: 1.1em;
+    font-style: normal;
+    margin: 0px 0 0px;
+    border-bottom: none;
+}
+.single .post .title {
+    margin-top: 15px;
+    display: block;
+    font-size: 1.5em !important;
+}
+.single .post .link {
+    padding: 10px 20px 20px;
+}
+.single .post .username-link {
+    font-size: 1.2em !important;
+}
+.single .post .tags {
+    right: 60px;
+}
+.single .post .time-search {
+    display: inline !important;
+}
+.single .post .content {
+    padding-bottom: 20px;
+}
+
+
+/* =Post =Responsive overrides */
+@media only screen and (max-width:480px) {
+    div.subsection.section-heading.day-heading h2 {
+        margin: 10px 0 0 0;
+    }
+    .day-filter .nav {
+        margin-top: 10px;
+    }
+    #posts .feed {
+        
+    }
+    .feed .post {
+        margin-bottom: 8px !important;
+    }
+    .post .user {
+        
+    }
+    .post .title {
+        display: inline !important;
+    }
+    .post .source {
+        display: inline !important;
+    }
+    .post .link {
+        margin-top: 0 !important;
+    }
+    .post .meta-top {
+        margin-top: 0 !important;
+    }
+    .post .excerpt {
+        display: none;
+    }
+    .single .post {
+        margin-left: 25px;
+    }
+    .single .post .excerpt {        
+        display: block;
+        margin: 0;
+    }
+    .single .post .content {
+        padding: 10px 0;
+    }
+    .post .expand {
+        display: none !important;
+    }
+    .post .tags {
+        display: none;
+    }
+    .single .article-post ul.bumps {
+        margin-left: 25px !important;
+    }
+}
+
+.avatar {
+    border: 1px solid #DFDFD1;
+    border-radius: 3px;
+}
+ .feed .title,
+ .featured-post .title {
+
+}
+
+feed.search .post .volume {
+    display: none
+}
+.feed.search a.expand {
+    display: none;
+}
+.feed.search .post .user {
+    margin-left: 0 !important;
+}
+.feed.search .content {
+}
+.feed.search .post .excerpt {
+    display: none;
+}
+.feed.search .post .time {
+    display: none;
+}
+.feed.search .post .time-search {
+    display: inline !important;
+}
+
+/*
+#
+# Single
+#
+#===========================================================*/
+.single .post .comment-count {
+    display: none;
+}

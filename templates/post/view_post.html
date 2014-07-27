@@ -22,12 +22,15 @@
           <div class="post">
           {% set p = post %}
           {% include post_snippet.html %}
+
+          <ul class="list-inline">
           {% if post['user']['screen_name'] == current_user or current_user_can('edit_posts') %}
-            <p style="padding-left: 20px;"><a href="/posts/{{ post['slug'] }}/edit" class="btn">Edit this post</a></p>
+            <li style="padding-left: 20px;"><a href="/posts/{{ post['slug'] }}/edit" class="btn btn-primary">Edit this post</a></li>
           {% end %}
           {% if current_user_can('delete_posts') %}
-            <p style="padding-left: 20px;"><a href="/posts/{{ post['slug'] }}/delete" class="btn">Delete this post</a></p>
+            <li ><a href="/posts/{{ post['slug'] }}/delete" class="btn btn-danger">Delete this post</a></li>
           {% end %}
+          </ul>
           </div>
           
           <div class="clearfix row hidden-xs tweet-post">

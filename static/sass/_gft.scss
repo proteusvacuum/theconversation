@@ -44,6 +44,7 @@ nav#main-nav{
 		width: 100%;
 		background-color: initial;
 		a.brand{display: none;}
+		a{padding-right: 40px; margin-right: 10px; width: 140px;}
 	}
 	padding-top: 20px;
 	margin-bottom: 15px;
@@ -53,9 +54,6 @@ nav#main-nav{
 		&:hover{
 			text-decoration: none;
 		}
-		padding-right: 40px;
-		margin-right: 10px;
-		width: 140px;
 		color: $primary-color;
 		font-size: 16px;
 		font-weight: 600;
@@ -115,5 +113,6 @@ footer{
 
 .partners{
 	margin-top: 25px;
+
 }
 

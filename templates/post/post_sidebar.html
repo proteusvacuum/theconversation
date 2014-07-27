@@ -1,8 +1,11 @@
+
+
 <div class="sidebar-widget welcome clearfix">
 
 	{% raw settings.get('site_intro') %}
 	
 	<p class="" style=""><a class="btn btn-primary btn-block" role="button" data-toggle="modal" href="#submit-modal">Submit a post</a></p>
+
 	
 	<hr />
 	
@@ -20,31 +23,31 @@
 	<h3 style="">Active conversations</h3>
 	<ul class="feed">
 		{% for p in hot_posts_past_week %}
-			<li class="post post-sidebar">
-				{% include sidebar_post_snippet.html %}
-			</li>
+		<li class="post post-sidebar">
+			{% include sidebar_post_snippet.html %}
+		</li>
 		{% end %}
 	</ul>
 </div>
 
 {% if 'tags' in globals() and len(tags) > 0 %}
 <div class="sidebar-widget">
- <h3 style="">Popular tags (last 14 days):</h3>
- <ul class="filter-tabs tags">
-	 {% for t in tags['result'] %}
-			 <li><a data-tag-count="{{t['count']}}" href="/tagged/{{t['_id']}}">#{{t['_id']}} ({{t['count']}})</a></li>
-	 {% end %}
- </ul>
- <p style="font-size: .9em; text-align:left; margin: 5px 0 0;"><a href="/tags">More tags</a></p>
- </div>
- {% end %}
- <div class="sidebar-widget" style="display:none">
-	 <h3>Featured:</h3>
-	 <ul class="feed">
-		 {% for i, p in enumerate(featured_posts) %}
-			 <li class="post featured">
-				 {% include featured_post_snippet.html %}
-			 </li>
-		 {% end %}
-	 </ul> 
-	</div>
+	<h3 style="">Popular tags (last 14 days):</h3>
+	<ul class="filter-tabs tags">
+		{% for t in tags['result'] %}
+		<li><a data-tag-count="{{t['count']}}" href="/tagged/{{t['_id']}}">#{{t['_id']}} ({{t['count']}})</a></li>
+		{% end %}
+	</ul>
+	<p style="font-size: .9em; text-align:left; margin: 5px 0 0;"><a href="/tags">More tags</a></p>
+</div>
+{% end %}
+<div class="sidebar-widget" style="display:none">
+	<h3>Featured:</h3>
+	<ul class="feed">
+		{% for i, p in enumerate(featured_posts) %}
+		<li class="post featured">
+			{% include featured_post_snippet.html %}
+		</li>
+		{% end %}
+	</ul> 
+</div>

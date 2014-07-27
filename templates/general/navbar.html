@@ -1,11 +1,27 @@
 <nav role="navigation" id="main-nav" class="{{ body_location_class }}">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-10 col-md-offset-1">
-        <a class="brand" href="/">Grow Food Tech</a>
-        <span class="pull-right"><a class="link contact" href="/contact">Contact</a></span>
-        <span class="pull-right"><a class="link conversation" href="/converse">Conversation</a></span>
-      </div>      
-    </div>
-  </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-10 col-md-offset-1">
+				<a class="brand" href="{% if current_path == '/' %} / {% else %} /converse {% end %}">Grow Food Tech</a>
+				<ul class="list-inline pull-right">
+				{% if current_path == "/" %}
+						<li><a class="link conversation" href="/converse">Conversation</a></li>
+						<li><a class="link contact" href="/contact">Contact</a></li>
+				{% end %}
+				{% if current_user and  current_path != "/" %}
+						<li>Welcome, <a href="/user/{{current_user}}" class="login">@{{ current_user }}</a>! &nbsp;</li>
+				{% end %}
+				{% if current_user_can('see_admin_link') and  current_path != "/" %}
+						<li><a class="login" href="/admin">Admin</a> &nbsp;</li>
+				{% end %}
+				{% if current_user and  current_path != "/" %}
+						<li><a class="login" href="/auth/logout?next={{ current_path }}">Logout</a></li>
+				{% else %}
+						<li><a class="login" href="/auth/twitter/?next={{ current_path }}">Log in with Twitter</a></li>
+				{% end %}
+			</ul>
+			</div>      
+		</div>
+	</div>
 </nav>
+
