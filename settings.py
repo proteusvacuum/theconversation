@@ -39,13 +39,13 @@ default_options = {
   'project_root': os.path.abspath(os.path.join(os.path.dirname(__file__))),
 
   # twiter details
-  'twitter_consumer_key' : 'TCApGsKnxY2mtA1zt9Dqf6Bl7',
-  'twitter_consumer_secret' : '6UlhmLxeQBfmZ6NmJ4FliuIDRtELFfhMnRtnQsxFq3mGZgpRCv',
+  'twitter_consumer_key' : os.environ.get('TWITTER_CONSUMER_KEY'),
+  'twitter_consumer_secret' : os.environ.get('TWITTER_CONSUMER_SECRET'),
 
   # disqus details
-  'disqus_public_key': 'BrnJNFt8joBPNjgOyvNB8BMcWTPTR6Vp6IonJGCWVF7IZADAwx0qGMAZG6tA7SpL',
-  'disqus_secret_key': '3Dpmcf9J7VOSw0rd9paJBHsO39VLs9PJifZWjqi9ueLx2sBfWRj7wcR4WjZozAZt',
-  'disqus_short_code': 'growfoodtech',
+  'disqus_public_key': os.environ.get('DISQUS_PUBLIC_KEY'),
+  'disqus_secret_key': os.environ.get('DISQUS_SECRET_KEY'),
+  'disqus_short_code': os.environ.get('DISQUS_SHORT_CODE'),
 
   # sendgrid details
   'sendgrid_user': '',

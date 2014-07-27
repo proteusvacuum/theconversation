@@ -211,7 +211,7 @@ def insert_post(post):
 ###########################
 def sort_posts(day="all"):
     # set our config values up
-    staff_bonus = -3
+    staff_bonus = 2.0
     comments_multiplier = 3.0
     votes_multiplier = 1.0
     super_upvotes_multiplier = 3.0

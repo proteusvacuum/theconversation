@@ -274,7 +274,8 @@ class Mute(app.basic.BaseHandler):
 class ReCalculateScores(app.basic.BaseHandler):
     def get(self):
         postsdb.sort_posts()
-        self.redirect('/')
+        self.set_secure_cookie('flash_success', "Posts were sorted" )
+        self.redirect('/admin')
 
 ###########################
 ### Remove user from blacklist

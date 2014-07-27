@@ -32,6 +32,15 @@ class Search(app.basic.BaseHandler):
 ### VIEW POSTS BY TAG
 ### /tagged/(.+)
 #####################
+class ViewAllTags(app.basic.BaseHandler):
+    def get(self):
+        tags = tagsdb.get_all_tags(sort="alpha")
+        self.render('search/all_tags.html', tags = tags)
+
+#####################
+### VIEW POSTS BY TAG
+### /tagged/(.+)
+#####################
 class ViewByTag(app.basic.BaseHandler):
     def get(self, tag=None):
         if tag:
