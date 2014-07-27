@@ -1,6 +1,6 @@
 .DS_Store
 *.pyc
 .env
-.sass-cache/*
+.sass-cache/
 settings_local_environ.py
 ghostdriver.log
