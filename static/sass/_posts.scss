@@ -454,8 +454,14 @@ display: block;
 .post-sm .expand span {
     margin: 0 !important;
 }
-.sidebar-widget .post-sm .tags {
-    
+.sidebar-widget ul {
+    padding-left: 0;
+}
+.sidebar-widget ul li {
+    padding: 10px;
+}
+.sidebar-widget .comment-count{
+    float:right;
 }
 .post.featured .content {
     margin-left: 65px !important;
