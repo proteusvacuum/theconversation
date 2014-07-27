@@ -1,8 +1,12 @@
 <nav role="navigation" id="main-nav" class="{{ body_location_class }}">
 	<div class="container">
 		<div class="row">
+			{% if current_path == '/' %}
 			<div class="col-xs-10 col-md-offset-1">
-				<a class="brand" href="{% if current_path == '/' %} / {% else %} /converse {% end %}">Grow Food Tech</a>
+			{% else %}
+			<div class="col-xs-12">
+			{% end %}
+				<a class="brand" class= "{{ body_location_class }}" href="{% if current_path == '/' %} / {% else %} /converse {% end %}">Grow Food Tech</a>
 				<ul class="list-inline pull-right">
 				{% if current_path == "/" %}
 						<li><a class="link conversation" href="/converse">Conversation</a></li>
@@ -16,7 +20,7 @@
 				{% end %}
 				{% if current_user and  current_path != "/" %}
 						<li><a class="login" href="/auth/logout?next={{ current_path }}">Logout</a></li>
-				{% else %}
+				{% elif current_path !="/" %}
 						<li><a class="login" href="/auth/twitter/?next={{ current_path }}">Log in with Twitter</a></li>
 				{% end %}
 			</ul>

@@ -60,8 +60,8 @@ def get_posts_by_bumps(screen_name, per_page, page):
     return list(db.post.find({'voted_users.screen_name':screen_name, 'user.screen_name':{'$ne':screen_name}}, sort=[('date_created', pymongo.DESCENDING)]).skip((page-1)*per_page).limit(per_page))
 
 def get_posts_by_query(query, per_page=10, page=1):
-    query_regex = re.compile('%s[\s$]' % query, re.I)
-    return list(db.post.find({'$or':[{'title':query_regex}, {'body_raw':query_regex}]}, sort=[('date_created', pymongo.DESCENDING)]).skip((page-1)*per_page).limit(per_page))
+    query_regex = re.compile('%s' % query, re.I)
+    return list(db.post.find({'$or':[{'title':query_regex}, {'body_html':query_regex}]}, sort=[('date_created', pymongo.DESCENDING)]) ) #.skip((page-1)*per_page).limit(per_page))
 
 def get_posts_by_tag(tag):
     return list(db.post.find({'deleted': { "$ne": True }, 'tags':tag}, sort=[('date_created', pymongo.DESCENDING)]))

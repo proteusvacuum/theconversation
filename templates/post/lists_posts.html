@@ -238,6 +238,7 @@
       #
       */
       {% if infinite_scroll %}
+      console.log("infinite_scroll");
       $('#posts').jscroll({
         contentSelector: '.feed-container',
         loadingHtml: '<img style="clear:both" src="/static/img/ajax-loader.gif" />',

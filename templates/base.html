@@ -3,6 +3,7 @@
 {% end %}
 {% from urlparse import urlparse %}
 {% from lib import template_helpers %}
+{% from lib import flashmessage %}
 {% import settings %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -52,12 +53,24 @@
   {% include "general/navbar.html" %}      
   <div id="content">
     <div class="container">
-      {% if current_path != "/" %}{% include "post/submit_post_modal.html %}{% end %}      
+      {% if handler.has_cookie('flash_success') %}
+    <div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+      {% raw handler.pop_cookie('flash_success') %}
+    </div>
+    {% end %}
+    {% if handler.has_cookie('flash_error') %}
+      <div class="alert alert-danger" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+        {% raw handler.pop_cookie('flash_error') %}
+      </div> 
+    {% end %}
+      {% if current_path != "/" %}{% include post/submit_post_modal.html %}{% end %}      
       {% block precontent %}{% end %}
       {% block content %}{% end %}
     </div>
   </div>
-  {% include general/footer.html %}
+  {# include general/footer.html #}
 </div>
 
 <script type="text/javascript">

@@ -19,7 +19,12 @@
   <span class="time-search" style="display:none"><a href="/posts/{{ p['slug'] }}" ><span class="glyphicon glyphicon-link" style="margin: 0;font-size: 90%"></span> {{ p['date_created'].strftime("%m/%d/%Y") }}</a></span>
 
   <a class="dsq-comment-count comment-count {{ 'zero' if p['comment_count'] == 0 else "" }}" title="Go to discussion"
-data-disqus-identifier="{{ str(p['_id']) }}" href="/posts/{{ p['slug'] }}"><i class="glyphicon glyphicon-comment"></i>{{ p['comment_count'] if p['comment_count'] > 0 else '' }} {{ '' if p['comment_count'] == 0 else "" }}</a>
+data-disqus-identifier="{{ str(p['_id']) }}" href="/posts/{{ p['slug'] }}">
+  <i class="glyphicon glyphicon-comment"></i> 
+  <span class="comment-count-number">
+    {{ p['comment_count'] if p['comment_count'] > 0 else '' }} {{ '' if p['comment_count'] == 0 else "" }}
+  </span>
+</a>
 
   {% if p['body_html'] and p['body_html'].strip() != ""  %}
   <a class="expand" data-status="closed" href="/posts/{{ p['slug'] }}"><span class="glyphicon glyphicon-collapse-down"></span> expand</a>

@@ -18,7 +18,12 @@
 	
 </div>
 
-
+{% try %}
+<div class="hidden">
+	{{ hot_posts_past_week }}
+</div>
+{% except %}
+{% else %}
 <div class="sidebar-widget" id="hot-posts-past-week" >
 	<h3 style="">Active conversations</h3>
 	<ul class="feed">
@@ -29,7 +34,7 @@
 		{% end %}
 	</ul>
 </div>
-
+{% end %}
 {% if 'tags' in globals() and len(tags) > 0 %}
 <div class="sidebar-widget">
 	<h3 style="">Popular tags (last 14 days):</h3>
@@ -41,6 +46,13 @@
 	<p style="font-size: .9em; text-align:left; margin: 5px 0 0;"><a href="/tags">More tags</a></p>
 </div>
 {% end %}
+
+{% try %}
+<div class="hidden">
+	{{ featured_posts }}
+</div>
+{% except %}
+{% else %}
 <div class="sidebar-widget" style="display:none">
 	<h3>Featured:</h3>
 	<ul class="feed">
@@ -51,3 +63,4 @@
 		{% end %}
 	</ul> 
 </div>
+{% end %}

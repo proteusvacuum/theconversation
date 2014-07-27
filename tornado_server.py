@@ -38,6 +38,7 @@ class Application(tornado.web.Application):
           "debug": debug,
           "static_path" : os.path.join(os.path.dirname(__file__), "static"),
           "template_path" : os.path.join(os.path.dirname(__file__), "templates"),
+          "conversation_path" : "/converse",
         }
 
         handlers = [
@@ -99,10 +100,10 @@ class Application(tornado.web.Application):
           (r"/feed$", app.posts.Feed),
           (r"/posts/new$", app.posts.NewPost),
           (r"/bookmarklet$", app.posts.NewPost),
-          (r"/(?P<sort_by>hot)$", app.posts.ListPosts),
-          (r"/(?P<sort_by>new)$", app.posts.ListPostsNew),
-          (r"/(?P<sort_by>sad)$", app.posts.ListPosts),
-          (r"/(?P<sort_by>[^\/]+)/page/(?P<page>[0-9]+)$", app.posts.ListPosts),
+          (r"/converse/(?P<sort_by>hot)$", app.posts.ListPosts),
+          (r"/converse/(?P<sort_by>new)$", app.posts.ListPostsNew),
+          (r"/converse/(?P<sort_by>sad)$", app.posts.ListPosts),
+          (r"/converse/(?P<sort_by>[^\/]+)/page/(?P<page>[0-9]+)$", app.posts.ListPosts),
           (r"/posts/([^\/]+)/upvote", app.posts.Bump),
           (r"/posts/([^\/]+)/bump", app.posts.Bump),
           (r"/posts/([^\/]+)/unbump", app.posts.UnBump),

@@ -69,7 +69,7 @@ class AdminCompany(app.basic.BaseHandler):
     @tornado.web.authenticated
     def get(self):
         if self.current_user_role() not in settings.get('admin_roles'):
-            self.redirect('/')
+            self.redirect('/converse')
         else:
             slug = self.get_argument('slug', '')
 
@@ -150,7 +150,7 @@ class AdminUsers(app.basic.BaseHandler):
         if user:
             user['role'] = newRole
             userdb.save_user(user)
-        
+        self.set_secure_cookie('flash_success', "<strong>" + user['user']['username'] + "</strong> is now a <strong>" + newRole + "</strong>" )
         self.redirect('/admin/users')
 ###########################
 ### View system statistics
@@ -179,6 +179,7 @@ class BanUser(app.basic.BaseHandler):
             if user:
                 user['user']['is_blacklisted'] = True
                 userdb.save_user(user)
+                self.set_secure_cookie('flash_success', "<strong>" + username + "</strong> was banned" )
         self.redirect('/admin/users')
 
 ###########################
@@ -209,6 +210,7 @@ class DeleteUser(app.basic.BaseHandler):
         if not self.current_user_role() in settings.get('admin_roles'):
             self.redirect('/')
         else:
+            self.set_secure_cookie('flash_success', "<strong>" + username + "</strong>'s posts were deleted" )
             postsdb.delete_all_posts_by_user(username)
             self.redirect('/admin/users')
 
@@ -286,6 +288,7 @@ class UnBanUser(app.basic.BaseHandler):
             if user:
                 user['user']['is_blacklisted'] = False
                 userdb.save_user(user)
+                self.set_secure_cookie('flash_success', "<strong>" + username + "</strong> was unbanned" )
         self.redirect('/admin/users')
 
 ###########################

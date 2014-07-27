@@ -16,21 +16,24 @@
       {% if len(tags['result']) == 0 %}
         <p>{{screen_name}} has not tagged any shares yet.</p>
       {% else %}
+      <ul class="list-inline tags filter-tabs">
         {% for t in tags['result'] %}
+          <li>
           {% if t['_id'] == tag %}
             <strong>#{{t['_id']}} ({{t['count']}})</strong>
           {% else %}
             <a href="/user/{{screen_name}}?tag={{url_escape(t['_id'])}}">#{{t['_id']}} ({{t['count']}})</a>
           {% end %}
-          &nbsp;&nbsp;&nbsp;&nbsp;
+          </li>
         {% end %}
+      </ul>
       {% end %}
       {% end %}
     </section>
 
     <section class="hot-newest-feed">
 
-      <ul class="nav nav-tabs" style="margin-top: 0">
+      <ul class="nav nav-tabs" style="margin-top: 20px">
         <li class="{{ 'active' if section == 'shares' else '' }}"><a class="" href="/user/{{ screen_name }}/shares">Shares</a></li>
         <li class="{{ 'active' if section == 'bumps' else '' }}"><a class="" href="/user/{{ screen_name }}/bumps">Bumps</a></li>
         <li class="{{ 'active' if section == 'mentions' else '' }}"><a class="" href="/user/{{ screen_name }}/mentions">Mentions</a></li>

@@ -16,7 +16,7 @@
 -->
 
 {% block content %}
-  <h1><a href="/admin/">Admin</a> > Stats</h1>
+  <h1>Stats</h1>
   <ul class="stats">
     <li class="posts">
       <div class="stat-number">{{ total_posts }}</div>
@@ -28,28 +28,6 @@
       <div class="stat-label">Registered users</div>
       <div class="stat-notes"></div>
     </li>
-  </ul>
+  </ul>  
   
-<ul class="nav nav-tabs">
-  <li class="active"><a href="#">Home</a></li>
-  <li><a href="#">Profile</a></li>
-  <li><a href="#">Messages</a></li>
-</ul>
-  
-  
-  
-{% end %}
-
-{% block javascript %}
-  <script>
-    $(document).ready(function() {
-      var max_height = 0;
-      $('.stats li').each(function() {
-        if ($(this).height() > max_height) {
-          max_height = $(this).height();
-        }
-      });
-      $('.stats li').height(max_height);
-    });
-  </script>
 {% end %}

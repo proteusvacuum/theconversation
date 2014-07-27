@@ -72,7 +72,8 @@ class DeleteAllDeletedPosts(app.basic.BaseHandler):
         if self.current_user_role() in settings.get('admin_roles'):
             # available to edit this post
             postsdb.permanently_delete_posts()
-            self.redirect('/admin/deleted_posts')
+            self.set_secure_cookie('flash_error', "<strong> All deleted posts were purged. </strong>" )
+        self.redirect('/admin/deleted_posts')
 
 class PermanentlyDelete(app.basic.BaseHandler):
     @tornado.web.authenticated
@@ -164,7 +165,7 @@ class ListPosts(app.basic.BaseHandler):
 
         show_day_permalink = True
         infinite_scroll = False
-        if self.request.path == ('/'):
+        if self.request.path == ('/converse'):
             show_day_permalink = False
             infinite_scroll = True
 
@@ -370,9 +371,11 @@ class ListPosts(app.basic.BaseHandler):
             postsdb.save_post(saved_post)
 
         if is_edit:
-            self.redirect('/posts/%s?msg=updated' % post['slug'])
+            self.set_secure_cookie('flash_success', 'Post Updated!')
+            self.redirect('/posts/%s' % post['slug'])
         else:
-            self.redirect('/?msg=success&slug=%s' % post['slug'])
+            self.set_secure_cookie('flash_success', 'Post Saved!')
+            self.redirect('/converse')
 
 
 ##############

@@ -132,3 +132,11 @@ class BaseHandler(tornado.web.RequestHandler):
             "code": status_code,
             "message": httplib.responses[status_code],
         })
+    
+    def pop_cookie(self, name):
+        data = self.get_secure_cookie(name)
+        self.clear_cookie(name)
+        return data if data != None else ""
+
+    def has_cookie(self, name):
+        return True if self.get_secure_cookie(name) != None else False
