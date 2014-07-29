@@ -8691,7 +8691,7 @@ body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   background-color: #f5f5f1;
   color: #53596e;
-  background: url("../images/bg.gif") !important;
+  background: url("../images/BackgroundTexture.png") !important;
 }
 
 /* line 8, ../sass/_gft.scss */
@@ -8757,22 +8757,30 @@ nav#main-nav.home a {
   margin-right: 10px;
   width: 140px;
 }
-/* line 53, ../sass/_gft.scss */
+@media screen and (max-width: 768px) {
+  /* line 49, ../sass/_gft.scss */
+  nav#main-nav.home a {
+    padding-right: 10px;
+    margin-right: 0;
+    width: initial;
+  }
+}
+/* line 56, ../sass/_gft.scss */
 nav#main-nav a {
   color: #53596e;
   font-size: 16px;
   font-weight: 600;
 }
-/* line 54, ../sass/_gft.scss */
+/* line 57, ../sass/_gft.scss */
 nav#main-nav a:hover {
   text-decoration: none;
 }
-/* line 62, ../sass/_gft.scss */
+/* line 65, ../sass/_gft.scss */
 nav#main-nav a.link {
   border-bottom: 4px solid #53596e;
   padding-bottom: 5px;
 }
-/* line 66, ../sass/_gft.scss */
+/* line 69, ../sass/_gft.scss */
 nav#main-nav a.brand {
   position: relative;
   top: -5px;
@@ -8781,59 +8789,67 @@ nav#main-nav a.brand {
   font-size: 20px;
   font-weight: 700;
 }
-/* line 74, ../sass/_gft.scss */
+/* line 77, ../sass/_gft.scss */
+nav#main-nav a.small-brand.brand {
+  color: #fff;
+  background-color: #00d692;
+  padding: 25px 15px 9px 15px;
+  position: relative;
+  left: -15px;
+}
+/* line 84, ../sass/_gft.scss */
 nav#main-nav a.conversation:hover {
   color: #de93c3;
 }
-/* line 77, ../sass/_gft.scss */
+/* line 87, ../sass/_gft.scss */
 nav#main-nav a.contact:hover {
   color: #e5ae57;
 }
 
-/* line 81, ../sass/_gft.scss */
+/* line 91, ../sass/_gft.scss */
 footer {
   margin-top: 25px;
 }
-/* line 83, ../sass/_gft.scss */
+/* line 93, ../sass/_gft.scss */
 footer a.footer-link {
   font-size: 9px;
 }
 
-/* line 87, ../sass/_gft.scss */
+/* line 97, ../sass/_gft.scss */
 .cta-container {
   margin-top: 90px;
 }
-/* line 89, ../sass/_gft.scss */
+/* line 99, ../sass/_gft.scss */
 .cta-container h2 {
   margin-top: 5px;
 }
-/* line 92, ../sass/_gft.scss */
+/* line 102, ../sass/_gft.scss */
 .cta-container hr {
   width: 70px;
   margin-top: 10px;
   border-top: 4px solid #53596e;
 }
-/* line 97, ../sass/_gft.scss */
+/* line 107, ../sass/_gft.scss */
 .cta-container .home-underline {
   width: 70px;
   margin-top: 10px;
 }
-/* line 101, ../sass/_gft.scss */
+/* line 111, ../sass/_gft.scss */
 .cta-container .joining-movement {
   margin-top: 15px;
 }
-/* line 103, ../sass/_gft.scss */
+/* line 113, ../sass/_gft.scss */
 .cta-container .joining-movement .down-arrow {
   font-size: 30px;
   top: 10px;
   padding-right: 10px;
 }
-/* line 108, ../sass/_gft.scss */
+/* line 118, ../sass/_gft.scss */
 .cta-container .joining-movement h3 {
   line-height: 40px;
 }
 
-/* line 114, ../sass/_gft.scss */
+/* line 124, ../sass/_gft.scss */
 .partners {
   margin-top: 25px;
 }

@@ -2,14 +2,25 @@ $(function(){
 	var scrollPosition, $nav = $('nav#main-nav'), $fadesout = $(".fadesout");
 	var heroTextPosition = $('h1').offset().top;
 	var checkNavBar = function(){
+		width = $(window).width()
 		scrollPosition = $(window).scrollTop();
 		if (scrollPosition > heroTextPosition - 2*$nav.height()){
-			$nav.find('.brand').fadeIn();
+			if (width < 768){
+				$nav.find('.small-brand').fadeIn();
+			}
+			else{
+				$nav.find('.big-brand').fadeIn();
+			}
 			$fadesout.stop().animate({opacity: 0}, 200);
 			$nav.css({"background-color": "#fff"});
 		}
 		else{
-			$nav.find('.brand').fadeOut();
+			if (width < 768){
+				$nav.find('.small-brand').fadeOut();
+			}
+			else{
+				$nav.find('.big-brand').fadeOut();
+			}
 			$fadesout.stop().animate({opacity: 1}, 200);
 			$nav.css({"background-color": "initial"});
 		}

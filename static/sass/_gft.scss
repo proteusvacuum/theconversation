@@ -45,6 +45,9 @@ nav#main-nav{
 		background-color: initial;
 		a.brand{display: none;}
 		a{padding-right: 40px; margin-right: 10px; width: 140px;}
+		@media screen and (max-width: $screen-sm-min){
+			a{padding-right: 10px; margin-right: 0; width: initial;}
+		}
 	}
 	padding-top: 20px;
 	margin-bottom: 15px;
@@ -70,6 +73,13 @@ nav#main-nav{
 		color: $brand-color;
 		font-size: 20px;
 		font-weight: 700;
+	}
+	a.small-brand.brand{
+		color: #fff;
+		background-color:$brand-color; 
+		padding: 25px 15px 9px 15px;
+		position: relative;
+		left: -15px;
 	}
 	a.conversation:hover{
 		color: #de93c3;

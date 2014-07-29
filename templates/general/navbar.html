@@ -2,11 +2,12 @@
 	<div class="container">
 		<div class="row">
 			{% if current_path == '/' %}
-			<div class="col-xs-10 col-md-offset-1">
+			<div class="col-md-10 col-xs-12 col-md-offset-1">
 			{% else %}
 			<div class="col-xs-12">
 			{% end %}
-				<a class="brand" class= "{{ body_location_class }}" href="{% if current_path == '/' %} / {% else %} /converse {% end %}">Grow Food Tech</a>
+				<a class="big-brand brand hidden-xs {{ body_location_class }}" href="{% if current_path == '/' %} / {% else %} /converse {% end %}">Grow Food Tech</a>
+				<a class="small-brand brand hidden-sm {{ body_location_class }}" href="{% if current_path == '/' %} / {% else %} /converse {% end %}">GFT</a>
 				<ul class="list-inline pull-right">
 				{% if current_path == "/" %}
 						<li><a class="link conversation" href="/converse">Conversation</a></li>
