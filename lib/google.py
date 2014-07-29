@@ -7,7 +7,7 @@ Basic google link shortener api handler - https://developers.google.com/url-shor
 import requests
 import simplejson as json
 import settings
-
+import logging
 def shorten_url(url):
     goo_key = settings.get('google_api_key')
     r = requests.post(
@@ -23,4 +23,4 @@ def expand_url(url):
       'https://www.googleapis.com/urlshortener/v1/url?shortUrl=%s' % url,
       verify=False
     )
-    return json.loads(r.text)
+    return json.loads(r.text)['longUrl']

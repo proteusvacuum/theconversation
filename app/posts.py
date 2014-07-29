@@ -262,7 +262,7 @@ class ListPosts(app.basic.BaseHandler):
                 if long_url.find('goo.gl') > -1:
                     long_url = google.expand_url(post['url'])
                 if long_url.find('bit.ly') > -1 or long_url.find('bitly.com') > -1:
-                    long_url = bitly.expand_url(post['url'].replace('http://bitly.com','').replace('http://bit.ly',''))
+                    long_url = bitly.expand_url(post['url'].replace('http://bitly.com','').replace('http://bit.ly',''))[0]['long_url']
                 post['domain'] = urlparse(long_url).netloc
 
             ok_to_post = True
