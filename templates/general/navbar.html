@@ -6,15 +6,15 @@
 			{% else %}
 			<div class="col-xs-12">
 			{% end %}
-				<a class="big-brand brand hidden-xs {{ body_location_class }}" href="{% if current_path == '/' %} / {% else %} /converse {% end %}">Grow Food Tech</a>
-				<a class="small-brand brand hidden-sm {{ body_location_class }}" href="{% if current_path == '/' %} / {% else %} /converse {% end %}">GFT</a>
+				<a class="big-brand brand hidden-xs {{ body_location_class }}" href="/">Grow Food Tech</a>
+				<a class="small-brand brand hidden-sm hidden-md hidden-lg {{ body_location_class }}" href="/">GFT</a>
 				<ul class="list-inline pull-right">
 				{% if current_path == "/" %}
 						<li><a class="link conversation" href="/converse">Conversation</a></li>
 						<li><a class="link contact" href="/contact">Contact</a></li>
 				{% end %}
 				{% if current_user and  current_path != "/" %}
-						<li>Welcome, <a href="/user/{{current_user}}" class="login">@{{ current_user }}</a>! &nbsp;</li>
+						<li><span class="hidden-xs">Welcome, </span><a href="/user/{{current_user}}" class="login">@{{ current_user }}</a><span class="hidden-xs">! &nbsp;</span></li>
 				{% end %}
 				{% if current_user_can('see_admin_link') and  current_path != "/" %}
 						<li><a class="login" href="/admin">Admin</a> &nbsp;</li>

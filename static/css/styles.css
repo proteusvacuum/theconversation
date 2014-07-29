@@ -1425,12 +1425,12 @@ textarea {
 
 /* line 48, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/bootstrap-sass-3.2.0.0/assets/stylesheets/bootstrap/_scaffolding.scss */
 a {
-  color: #53596e;
+  color: #999a9e;
   text-decoration: none;
 }
 /* line 53, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/bootstrap-sass-3.2.0.0/assets/stylesheets/bootstrap/_scaffolding.scss */
 a:hover, a:focus {
-  color: #323642;
+  color: #727378;
   text-decoration: underline;
 }
 /* line 58, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/bootstrap-sass-3.2.0.0/assets/stylesheets/bootstrap/_scaffolding.scss */
@@ -4232,7 +4232,7 @@ select[multiple].input-lg,
 
 /* line 85, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/bootstrap-sass-3.2.0.0/assets/stylesheets/bootstrap/_buttons.scss */
 .btn-link {
-  color: #53596e;
+  color: #999a9e;
   font-weight: normal;
   cursor: pointer;
   border-radius: 0;
@@ -4249,7 +4249,7 @@ select[multiple].input-lg,
 }
 /* line 105, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/bootstrap-sass-3.2.0.0/assets/stylesheets/bootstrap/_buttons.scss */
 .btn-link:hover, .btn-link:focus {
-  color: #323642;
+  color: #727378;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -4944,7 +4944,7 @@ tbody.collapse.in {
 /* line 48, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/bootstrap-sass-3.2.0.0/assets/stylesheets/bootstrap/_navs.scss */
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
   background-color: #eeeeee;
-  border-color: #53596e;
+  border-color: #999a9e;
 }
 /* line 59, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/bootstrap-sass-3.2.0.0/assets/stylesheets/bootstrap/_navs.scss */
 .nav .nav-divider {
@@ -5711,7 +5711,7 @@ tbody.collapse.in {
   padding: 6px 12px;
   line-height: 1.428571429;
   text-decoration: none;
-  color: #53596e;
+  color: #999a9e;
   background-color: white;
   border: 1px solid #dddddd;
   margin-left: -1px;
@@ -5733,7 +5733,7 @@ tbody.collapse.in {
 .pagination > li > a:hover, .pagination > li > a:focus,
 .pagination > li > span:hover,
 .pagination > li > span:focus {
-  color: #323642;
+  color: #727378;
   background-color: #eeeeee;
   border-color: #dddddd;
 }
@@ -5969,7 +5969,7 @@ a.label:hover, a.label:focus {
 }
 /* line 40, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/bootstrap-sass-3.2.0.0/assets/stylesheets/bootstrap/_badges.scss */
 a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
-  color: #53596e;
+  color: #999a9e;
   background-color: white;
 }
 /* line 44, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/bootstrap-sass-3.2.0.0/assets/stylesheets/bootstrap/_badges.scss */
@@ -6065,7 +6065,7 @@ a.badge:hover, a.badge:focus {
 a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
-  border-color: #53596e;
+  border-color: #999a9e;
 }
 
 /* line 9, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/bootstrap-sass-3.2.0.0/assets/stylesheets/bootstrap/_alerts.scss */
@@ -8696,7 +8696,7 @@ body {
 
 /* line 8, ../sass/_gft.scss */
 h1 {
-  font-size: 37px;
+  font-size: 35px;
   font-weight: 700;
 }
 /* line 11, ../sass/_gft.scss */
@@ -8717,29 +8717,31 @@ h2 a {
   color: #8d8e92;
 }
 /* line 25, ../sass/_gft.scss */
-h2 a.conversation {
+h2 a.conversation:hover {
   color: #de93c3;
+  text-decoration: none;
 }
-/* line 28, ../sass/_gft.scss */
-h2 a.contact {
+/* line 29, ../sass/_gft.scss */
+h2 a.contact:hover {
   color: #e5ae57;
+  text-decoration: none;
 }
 
-/* line 33, ../sass/_gft.scss */
+/* line 35, ../sass/_gft.scss */
 h3 {
   font-size: 17px;
   color: #53596e;
   font-weight: 300;
 }
 
-/* line 39, ../sass/_gft.scss */
+/* line 41, ../sass/_gft.scss */
 nav#main-nav {
   padding-top: 20px;
   margin-bottom: 15px;
   height: 50px;
   background-color: #fff;
 }
-/* line 40, ../sass/_gft.scss */
+/* line 42, ../sass/_gft.scss */
 nav#main-nav.home {
   position: fixed;
   top: 0px;
@@ -8747,49 +8749,49 @@ nav#main-nav.home {
   width: 100%;
   background-color: initial;
 }
-/* line 46, ../sass/_gft.scss */
+/* line 48, ../sass/_gft.scss */
 nav#main-nav.home a.brand {
   display: none;
 }
-/* line 47, ../sass/_gft.scss */
+/* line 49, ../sass/_gft.scss */
 nav#main-nav.home a {
   padding-right: 40px;
   margin-right: 10px;
   width: 140px;
 }
 @media screen and (max-width: 768px) {
-  /* line 49, ../sass/_gft.scss */
-  nav#main-nav.home a {
+  /* line 52, ../sass/_gft.scss */
+  nav#main-nav a {
     padding-right: 10px;
     margin-right: 0;
     width: initial;
   }
 }
-/* line 56, ../sass/_gft.scss */
+/* line 58, ../sass/_gft.scss */
 nav#main-nav a {
   color: #53596e;
   font-size: 16px;
   font-weight: 600;
 }
-/* line 57, ../sass/_gft.scss */
+/* line 59, ../sass/_gft.scss */
 nav#main-nav a:hover {
   text-decoration: none;
 }
-/* line 65, ../sass/_gft.scss */
+/* line 66, ../sass/_gft.scss */
 nav#main-nav a.link {
   border-bottom: 4px solid #53596e;
   padding-bottom: 5px;
 }
-/* line 69, ../sass/_gft.scss */
+/* line 70, ../sass/_gft.scss */
 nav#main-nav a.brand {
   position: relative;
   top: -5px;
-  width: 100%;
+  width: auto;
   color: #00d692;
   font-size: 20px;
   font-weight: 700;
 }
-/* line 77, ../sass/_gft.scss */
+/* line 78, ../sass/_gft.scss */
 nav#main-nav a.small-brand.brand {
   color: #fff;
   background-color: #00d692;
@@ -8797,61 +8799,66 @@ nav#main-nav a.small-brand.brand {
   position: relative;
   left: -15px;
 }
-/* line 84, ../sass/_gft.scss */
+/* line 85, ../sass/_gft.scss */
 nav#main-nav a.conversation:hover {
   color: #de93c3;
 }
-/* line 87, ../sass/_gft.scss */
+/* line 88, ../sass/_gft.scss */
 nav#main-nav a.contact:hover {
   color: #e5ae57;
 }
 
-/* line 91, ../sass/_gft.scss */
+/* line 92, ../sass/_gft.scss */
 footer {
   margin-top: 25px;
 }
-/* line 93, ../sass/_gft.scss */
+/* line 94, ../sass/_gft.scss */
 footer a.footer-link {
   font-size: 9px;
 }
 
-/* line 97, ../sass/_gft.scss */
+/* line 98, ../sass/_gft.scss */
 .cta-container {
   margin-top: 90px;
 }
-/* line 99, ../sass/_gft.scss */
+/* line 100, ../sass/_gft.scss */
 .cta-container h2 {
   margin-top: 5px;
 }
-/* line 102, ../sass/_gft.scss */
+/* line 103, ../sass/_gft.scss */
 .cta-container hr {
   width: 70px;
   margin-top: 10px;
   border-top: 4px solid #53596e;
 }
-/* line 107, ../sass/_gft.scss */
+/* line 108, ../sass/_gft.scss */
 .cta-container .home-underline {
   width: 70px;
   margin-top: 10px;
 }
-/* line 111, ../sass/_gft.scss */
+/* line 112, ../sass/_gft.scss */
 .cta-container .joining-movement {
   margin-top: 15px;
 }
-/* line 113, ../sass/_gft.scss */
+/* line 114, ../sass/_gft.scss */
 .cta-container .joining-movement .down-arrow {
   font-size: 30px;
   top: 10px;
   padding-right: 10px;
 }
-/* line 118, ../sass/_gft.scss */
+/* line 119, ../sass/_gft.scss */
 .cta-container .joining-movement h3 {
   line-height: 40px;
 }
 
-/* line 124, ../sass/_gft.scss */
+/* line 125, ../sass/_gft.scss */
 .partners {
   margin-top: 25px;
+}
+/* line 127, ../sass/_gft.scss */
+.partners .partner-image {
+  width: 75%;
+  height: 75%;
 }
 
 /*

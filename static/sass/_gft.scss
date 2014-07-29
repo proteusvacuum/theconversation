@@ -6,7 +6,7 @@ body{
 }
 
 h1{
-	font-size: 37px;
+	font-size: 35px;
 	font-weight: 700;
 	span.brand{
 		color: $green-color;
@@ -22,11 +22,13 @@ h2{
 
 h2 a{
 	color: #8d8e92;
-	&.conversation{
+	&.conversation:hover{
 		color: #de93c3;
+		text-decoration: none;
 	}
-	&.contact{
+	&.contact:hover{
 		color: #e5ae57;
+		text-decoration: none;
 	}
 }
 
@@ -45,9 +47,9 @@ nav#main-nav{
 		background-color: initial;
 		a.brand{display: none;}
 		a{padding-right: 40px; margin-right: 10px; width: 140px;}
-		@media screen and (max-width: $screen-sm-min){
-			a{padding-right: 10px; margin-right: 0; width: initial;}
-		}
+	}
+	@media screen and (max-width: $screen-sm-min){
+		a{padding-right: 10px; margin-right: 0; width: initial;}
 	}
 	padding-top: 20px;
 	margin-bottom: 15px;
@@ -60,7 +62,6 @@ nav#main-nav{
 		color: $primary-color;
 		font-size: 16px;
 		font-weight: 600;
-		
 	}
 	a.link{
 		border-bottom: 4px solid #53596e;
@@ -69,7 +70,7 @@ nav#main-nav{
 	a.brand{
 		position: relative;
 		top:-5px;
-		width: 100%;
+		width: auto;
 		color: $brand-color;
 		font-size: 20px;
 		font-weight: 700;
@@ -123,6 +124,9 @@ footer{
 
 .partners{
 	margin-top: 25px;
-
+	.partner-image{
+		width: 75%;
+		height:75%;
+	}
 }
 
