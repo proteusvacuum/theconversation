@@ -8700,7 +8700,7 @@ h1 {
   font-weight: 700;
 }
 /* line 11, ../sass/_gft.scss */
-h1 span.brand {
+h1 span.green, h1.green {
   color: #00d692;
 }
 
@@ -8837,25 +8837,25 @@ footer a.footer-link {
   margin-top: 10px;
 }
 /* line 112, ../sass/_gft.scss */
-.cta-container .joining-movement {
+.cta-container .home-spacing {
   margin-top: 15px;
 }
-/* line 114, ../sass/_gft.scss */
+/* line 116, ../sass/_gft.scss */
 .cta-container .joining-movement .down-arrow {
   font-size: 30px;
   top: 10px;
   padding-right: 10px;
 }
-/* line 119, ../sass/_gft.scss */
+/* line 121, ../sass/_gft.scss */
 .cta-container .joining-movement h3 {
   line-height: 40px;
 }
 
-/* line 125, ../sass/_gft.scss */
+/* line 127, ../sass/_gft.scss */
 .partners {
   margin-top: 25px;
 }
-/* line 127, ../sass/_gft.scss */
+/* line 129, ../sass/_gft.scss */
 .partners .partner-image {
   width: 75%;
   height: 75%;

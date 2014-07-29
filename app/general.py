@@ -16,3 +16,7 @@ class About(app.basic.BaseHandler):
 class HomePage(app.basic.BaseHandler):
 	def get(self):
 		self.render('general/home.html')		
+
+class Contact(app.basic.BaseHandler):
+    def get(self):
+        self.render('general/contact.html')

@@ -21,14 +21,17 @@
   <link rel="alternate" type="application/rss+xml" title="{{ settings.get('site_title') }} - Today's Posts" href="/feed/today" />
   <link rel="apple-touch-icon" sizes="57x57" href="{{ static_url("img/usv-touch-icon.png") }}" />
   <link rel="shortcut icon" href="{{ static_url("themes/%s/img/favicon.png" % settings.get('active_theme')) }}" type="image/png" />
+
   <!-- <link rel="stylesheet" href="{{ static_url("css/bootstrap.min.css") }}" /> -->
   <!-- dont cache style.css yes, since we're still developing on it heavily -->
   <!-- <link rel="stylesheet" href="{{ static_url("css/theconversation.css") }}" /> -->
   
   <!-- Theme files -->
   <link rel="stylesheet" href="{{ static_url("themes/%s/%s.css" % (settings.get('active_theme'), settings.get('active_theme'))) }}" />
-
+  
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <!-- SASS compiled stylesheets -->
+
   <link href="/static/css/styles.css" rel="stylesheet" type="text/css" />
 
   <script src="{{ static_url("js/vendor/respond.min.js") }}"></script>
@@ -200,6 +203,9 @@ $('.supervote-link').on('click', function(e) {
   });
 });
 
+</script>
+<script type="text/javascript">
+  {% include "general/google_analytics.js" %}
 </script>
 </body>
 </html>

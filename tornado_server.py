@@ -44,6 +44,7 @@ class Application(tornado.web.Application):
         handlers = [
           #Home
           (r'/$', app.general.HomePage),
+          (r'/contact/?', app.general.Contact),
 
           # account stuff
           (r"/auth/email/?", app.user.EmailSettings),
