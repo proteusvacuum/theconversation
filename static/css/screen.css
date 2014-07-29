@@ -1,10 +1,10 @@
 /*
 Syntax error: Undefined variable: "$screen-sm-min".
-        on line 51 of /Users/farid/Documents/Dev/foodtechforward/theconversation/static/sass/_gft.scss
+        on line 55 of /Users/farid/Documents/Dev/foodtechforward/theconversation/static/sass/_gft.scss
         from line 9 of /Users/farid/Documents/Dev/foodtechforward/theconversation/static/sass/screen.scss
 
 Backtrace:
-/Users/farid/Documents/Dev/foodtechforward/theconversation/static/sass/_gft.scss:51
+/Users/farid/Documents/Dev/foodtechforward/theconversation/static/sass/_gft.scss:55
 /Users/farid/Documents/Dev/foodtechforward/theconversation/static/sass/screen.scss:9
 /Users/farid/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.14/lib/sass/script/variable.rb:49:in `_perform'
 /Users/farid/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.14/lib/sass/script/node.rb:40:in `perform'
@@ -89,4 +89,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$screen-sm-min\".\A         on line 51 of /Users/farid/Documents/Dev/foodtechforward/theconversation/static/sass/_gft.scss\A         from line 9 of /Users/farid/Documents/Dev/foodtechforward/theconversation/static/sass/screen.scss"; }
+  content: "Syntax error: Undefined variable: \"$screen-sm-min\".\A         on line 55 of /Users/farid/Documents/Dev/foodtechforward/theconversation/static/sass/_gft.scss\A         from line 9 of /Users/farid/Documents/Dev/foodtechforward/theconversation/static/sass/screen.scss"; }

@@ -8759,30 +8759,40 @@ nav#main-nav.home a {
   margin-right: 10px;
   width: 140px;
 }
+/* line 52, ../sass/_gft.scss */
+nav#main-nav.contact-page a {
+  padding-right: 40px;
+  margin-right: 10px;
+  width: 140px;
+}
+/* line 53, ../sass/_gft.scss */
+nav#main-nav.contact-page a.contact {
+  color: #e5ae57;
+}
 @media screen and (max-width: 768px) {
-  /* line 52, ../sass/_gft.scss */
+  /* line 56, ../sass/_gft.scss */
   nav#main-nav a {
     padding-right: 10px;
     margin-right: 0;
     width: initial;
   }
 }
-/* line 58, ../sass/_gft.scss */
+/* line 62, ../sass/_gft.scss */
 nav#main-nav a {
   color: #53596e;
   font-size: 16px;
   font-weight: 600;
 }
-/* line 59, ../sass/_gft.scss */
+/* line 63, ../sass/_gft.scss */
 nav#main-nav a:hover {
   text-decoration: none;
 }
-/* line 66, ../sass/_gft.scss */
+/* line 70, ../sass/_gft.scss */
 nav#main-nav a.link {
   border-bottom: 4px solid #53596e;
   padding-bottom: 5px;
 }
-/* line 70, ../sass/_gft.scss */
+/* line 74, ../sass/_gft.scss */
 nav#main-nav a.brand {
   position: relative;
   top: -5px;
@@ -8791,7 +8801,7 @@ nav#main-nav a.brand {
   font-size: 20px;
   font-weight: 700;
 }
-/* line 78, ../sass/_gft.scss */
+/* line 82, ../sass/_gft.scss */
 nav#main-nav a.small-brand.brand {
   color: #fff;
   background-color: #00d692;
@@ -8799,63 +8809,63 @@ nav#main-nav a.small-brand.brand {
   position: relative;
   left: -15px;
 }
-/* line 85, ../sass/_gft.scss */
+/* line 89, ../sass/_gft.scss */
 nav#main-nav a.conversation:hover {
   color: #de93c3;
 }
-/* line 88, ../sass/_gft.scss */
+/* line 92, ../sass/_gft.scss */
 nav#main-nav a.contact:hover {
   color: #e5ae57;
 }
 
-/* line 92, ../sass/_gft.scss */
+/* line 96, ../sass/_gft.scss */
 footer {
   margin-top: 25px;
 }
-/* line 94, ../sass/_gft.scss */
+/* line 98, ../sass/_gft.scss */
 footer a.footer-link {
   font-size: 9px;
 }
 
-/* line 98, ../sass/_gft.scss */
+/* line 102, ../sass/_gft.scss */
 .cta-container {
   margin-top: 90px;
 }
-/* line 100, ../sass/_gft.scss */
+/* line 104, ../sass/_gft.scss */
 .cta-container h2 {
   margin-top: 5px;
 }
-/* line 103, ../sass/_gft.scss */
+/* line 107, ../sass/_gft.scss */
 .cta-container hr {
   width: 70px;
   margin-top: 10px;
   border-top: 4px solid #53596e;
 }
-/* line 108, ../sass/_gft.scss */
+/* line 112, ../sass/_gft.scss */
 .cta-container .home-underline {
   width: 70px;
   margin-top: 10px;
 }
-/* line 112, ../sass/_gft.scss */
+/* line 116, ../sass/_gft.scss */
 .cta-container .home-spacing {
   margin-top: 15px;
 }
-/* line 116, ../sass/_gft.scss */
+/* line 120, ../sass/_gft.scss */
 .cta-container .joining-movement .down-arrow {
   font-size: 30px;
   top: 10px;
   padding-right: 10px;
 }
-/* line 121, ../sass/_gft.scss */
+/* line 125, ../sass/_gft.scss */
 .cta-container .joining-movement h3 {
   line-height: 40px;
 }
 
-/* line 127, ../sass/_gft.scss */
+/* line 131, ../sass/_gft.scss */
 .partners {
   margin-top: 25px;
 }
-/* line 129, ../sass/_gft.scss */
+/* line 133, ../sass/_gft.scss */
 .partners .partner-image {
   width: 75%;
   height: 75%;

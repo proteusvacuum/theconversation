@@ -33,6 +33,8 @@ class BaseHandler(tornado.web.RequestHandler):
 
         if self.request.path == "/":
             kwargs['body_location_class'] = "home"
+        elif self.request.path == "/contact":
+            kwargs['body_location_class'] = "contact-page"
 
         super(BaseHandler, self).render(template, **kwargs)
 

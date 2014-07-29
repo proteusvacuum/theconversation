@@ -202,7 +202,11 @@ def insert_post(post):
     if 'subscribed' not in post.keys():
         post['subscribed'] = []
     db.post.update({'url':post['slug'], 'user.screen_name':post['user']['screen_name']}, post, upsert=True)
+    
+    sort_posts(datetime.today())
+    
     return post['slug']
+
 
 ###########################
 ### SORT ALL POSTS
@@ -259,8 +263,8 @@ def sort_posts(day="all"):
         # and save the new score
         post['scores'] = scores
         update_post_score(post['slug'], total_score, scores)
-        print post['slug']
-        print "-- %s" % total_score
-        print "---- %s" % json.dumps(scores, indent=4)
+        # print post['slug']
+        # print "-- %s" % total_score
+        # print "---- %s" % json.dumps(scores, indent=4)
 
     print "All posts sorted!"

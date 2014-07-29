@@ -48,6 +48,10 @@ nav#main-nav{
 		a.brand{display: none;}
 		a{padding-right: 40px; margin-right: 10px; width: 140px;}
 	}
+	&.contact-page{
+		a{padding-right: 40px; margin-right: 10px; width: 140px;}
+		a.contact{color: #e5ae57;}
+	}
 	@media screen and (max-width: $screen-sm-min){
 		a{padding-right: 10px; margin-right: 0; width: initial;}
 	}
